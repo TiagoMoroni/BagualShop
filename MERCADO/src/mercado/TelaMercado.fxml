@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="551.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mercado.TelaMercadoController">
+   <children>
+      <ImageView fitHeight="574.0" fitWidth="760.0" layoutX="263.0" pickOnBounds="true">
+         <image>
+            <Image url="@background-gaucho-5.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="574.0" prefWidth="263.0" style="-fx-background-color: #2F1E17;">
+         <children>
+            <ImageView fitHeight="160.0" fitWidth="263.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imageedit_10_3489691048.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label contentDisplay="RIGHT" layoutX="760.0" layoutY="12.0" prefHeight="230.0" prefWidth="237.0" style="-fx-font-weight: bold; font: #45464D;" text="LOJA ONLINE DE ITENS GAÚCHOS" wrapText="true">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

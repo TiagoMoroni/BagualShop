@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mercado.TelaInicialController">
+   <children>
+      <ImageView fitHeight="584.0" fitWidth="829.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@telainicial.jpg" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="510.0" opacity="0.76" prefHeight="551.0" prefWidth="319.0" style="-fx-background-color: white;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="81.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="238.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="143.0" fitWidth="335.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgonline-com-ua-Transparent-background-xoUWzsLLm0jpaMJ.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ImageView>
+            <TextField fx:id="recebeusuario" maxWidth="156.0" prefHeight="25.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets bottom="80.0" />
+               </GridPane.margin>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" textAlignment="CENTER" wrappingWidth="93.13671875" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="80.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" textAlignment="CENTER" wrappingWidth="95.13671875" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="60.0" />
+               </GridPane.margin>
+            </Text>
+            <PasswordField fx:id="recebesenha" maxWidth="156.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets top="60.0" />
+               </GridPane.margin></PasswordField>
+            <Button fx:id="botaologin" mnemonicParsing="false" onAction="#apertouLogin" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="106.0" top="210.0" />
+               </GridPane.margin>
+            </Button>
+            <Label prefHeight="17.0" prefWidth="91.0" text="Não tem conta?" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="48.0" top="138.0" />
+               </GridPane.margin>
+            </Label>
+            <Button fx:id="botaoregistrar" mnemonicParsing="false" onAction="#apertouRegistrar" text="Inscreva-se" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="140.0" top="138.0" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="statuslogin" prefHeight="23.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets top="130.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
+   </children>
+</Pane>
