@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -15,19 +16,21 @@
             <Image url="@background-gaucho-5.jpg" />
          </image>
       </ImageView>
-      <AnchorPane prefHeight="574.0" prefWidth="263.0" style="-fx-background-color: #2F1E17;">
+      <AnchorPane prefHeight="574.0" prefWidth="301.0" style="-fx-background-color: #2F1E17;">
          <children>
-            <ImageView fitHeight="160.0" fitWidth="263.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="160.0" fitWidth="263.0" layoutX="19.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imageedit_10_3489691048.png" />
                </image>
             </ImageView>
+            <Label layoutX="30.0" layoutY="152.0" prefHeight="17.0" prefWidth="248.0" text="        LOJA ONLINE DE ITENS GAÚCHOS" textAlignment="CENTER" textFill="#d7d0d0" />
+            <Button layoutX="100.0" layoutY="184.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Conta" />
+            <Button layoutX="170.0" layoutY="184.0" mnemonicParsing="false" text="Procura" />
+            <Button layoutY="255.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ROUPAS" textFill="#7f5f4b" />
+            <Button layoutY="291.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ALIMENTOS" textFill="#7f5f4b" />
+            <Button layoutY="327.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CAVALOS" textFill="#7f5f4b" />
+            <Button layoutY="363.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CARROÇA" textFill="#7f5f4b" />
          </children>
       </AnchorPane>
-      <Label contentDisplay="RIGHT" layoutX="760.0" layoutY="12.0" prefHeight="230.0" prefWidth="237.0" style="-fx-font-weight: bold; font: #45464D;" text="LOJA ONLINE DE ITENS GAÚCHOS" wrapText="true">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>
