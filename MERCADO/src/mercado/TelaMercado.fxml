@@ -29,7 +29,8 @@
             <Button layoutY="255.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ROUPAS" textFill="#7f5f4b" />
             <Button layoutY="291.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ALIMENTOS" textFill="#7f5f4b" />
             <Button layoutY="327.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CAVALOS" textFill="#7f5f4b" />
-            <Button layoutY="363.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CARROÇA" textFill="#7f5f4b" />
+            <Button layoutY="363.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CUIAS" textFill="#7f5f4b" />
+            <Button layoutY="399.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CARROÇA" textFill="#7f5f4b" />
          </children>
       </AnchorPane>
    </children>

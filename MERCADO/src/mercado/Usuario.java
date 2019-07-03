@@ -7,9 +7,18 @@ import java.util.HashMap;
 
 public class Usuario {
     
-    String nome;
-    String senha;
-    HashMap<String, ArrayList<String>> horaativ;
+    private String nome;
+    private String senha;
+    private HashMap<String, ArrayList<String>> horaativ;
+    private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
     public String getNome() {
         return nome;
