@@ -32,13 +32,7 @@ public class TelaMercadoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Usuario usuatual = new Usuario("Henrique", "alo");
-        
-        try {
-            mostraNomeUsuario();
-        } catch (IOException ex) {
-            Logger.getLogger(TelaMercadoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     }    
     
 }

@@ -62,7 +62,7 @@ public class TelaInicialController implements Initializable {
     
     @FXML
     private void apertouRegistrar(ActionEvent event) throws IOException{
-        Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaRegistrar.fxml"));
+        Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaNovaConta.fxml"));
         Scene telaLogadoScene = new Scene(telaLogadoParent);
         Stage tela = (Stage)((Node)event.getSource()).getScene().getWindow();
         tela.setScene(telaLogadoScene);
