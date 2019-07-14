@@ -1,11 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mercado.CriarAnuncioController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="775.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="mercado.CriarAnuncioController">
+   <children>
+      <ImageView fitHeight="103.0" fitWidth="290.0" layoutX="87.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../MERCADO/src/mercado/imgonline-com-ua-Transparent-background-xoUWzsLLm0jpaMJ.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="308.0" fitWidth="414.0" layoutX="50.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../MERCADO/src/mercado/CriarAnuncio%20-%20imagem%20melhor.png" />
+         </image>
+      </ImageView>
+      <ChoiceBox layoutX="593.0" layoutY="93.0" prefWidth="150.0" />
+      <Line endY="500.0" layoutX="400.0" layoutY="25.0" />
+      <Button layoutX="645.0" layoutY="397.0" mnemonicParsing="false" text="Registrar">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="492.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" textAlignment="RIGHT" wrappingWidth="93.0">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Text>
+      <TextField layoutX="531.0" layoutY="189.0" prefHeight="173.0" prefWidth="213.0" />
+      <TextField layoutX="595.0" layoutY="140.0" />
+      <Text layoutX="492.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço" textAlignment="RIGHT" wrappingWidth="93.0">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="471.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto" textAlignment="RIGHT" wrappingWidth="119.13671875">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Text>
+      <TextField layoutX="595.0" layoutY="52.0" />
+      <Text layoutX="428.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição" textAlignment="RIGHT" wrappingWidth="93.0">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="50.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clique abaixo para inserir a imagem de seu produto" wrappingWidth="300.0799560546875">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Text>
+      <Button layoutX="709.0" layoutY="501.0" mnemonicParsing="false" text="Button" />
+   </children>
 </AnchorPane>

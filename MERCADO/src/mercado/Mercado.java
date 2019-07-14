@@ -6,10 +6,12 @@
 package mercado;
 
 import java.io.IOException;
+import java.io.InputStream;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 
 import javafx.stage.Stage;
 

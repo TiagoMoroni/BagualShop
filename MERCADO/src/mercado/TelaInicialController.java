@@ -67,7 +67,7 @@ public class TelaInicialController implements Initializable {
         Stage tela = (Stage)((Node)event.getSource()).getScene().getWindow();
         tela.setScene(telaLogadoScene);
         tela.show();    
-        tela.setTitle("MyNotes - Registro");
+        tela.setTitle("BagualShop - Registro");
     
     }
    

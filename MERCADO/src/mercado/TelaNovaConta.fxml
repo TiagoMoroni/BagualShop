@@ -27,8 +27,7 @@
             <Font name="Century Gothic" size="26.0" />
          </font>
       </Label>
-      <TextField layoutX="474.0" layoutY="156.0" prefHeight="34.0" prefWidth="217.0" promptText="Digite o nome do novo usuario..." />
-      <TextField layoutX="474.0" layoutY="256.0" prefHeight="34.0" prefWidth="217.0" promptText="Digite sua senha..." />
+      <TextField fx:id="recebenome" layoutX="474.0" layoutY="156.0" prefHeight="34.0" prefWidth="217.0" promptText="Digite o nome do novo usuario..." />
       <Text layoutX="381.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" textAlignment="RIGHT" wrappingWidth="84.13671875">
          <font>
             <Font name="Century Gothic" size="22.0" />
@@ -39,10 +38,13 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <Button layoutX="455.0" layoutY="350.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="154.0" text="Registrar novo Usuario">
+      <Button layoutX="455.0" layoutY="350.0" mnemonicParsing="false" onAction="#apertouRegistrar" prefHeight="42.0" prefWidth="154.0" text="Registrar novo Usuario">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
       </Button>
+      <Label fx:id="alo" layoutX="460.0" layoutY="291.0" prefHeight="49.0" prefWidth="144.0" />
+      <PasswordField fx:id="recebesenha" layoutX="474.0" layoutY="258.0" prefHeight="34.0" prefWidth="217.0" promptText="Digite a sua senha..." />
+      <Button fx:id="voltar" layoutX="577.0" layoutY="447.0" mnemonicParsing="false" onAction="#apertouVoltar" prefHeight="25.0" prefWidth="136.0" text="Voltar ao Menu Inicial" />
    </children>
 </AnchorPane>
