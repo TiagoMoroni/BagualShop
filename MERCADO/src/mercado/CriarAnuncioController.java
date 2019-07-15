@@ -31,7 +31,7 @@ import javax.imageio.ImageIO;
  *
  * @author 05200244
  */
-public class CriarAnuncioController implements Initializable {
+public class CriarAnuncioController{
 
     @FXML private ImageView imagemprod; 
     @FXML private TextField recebenome;
@@ -41,6 +41,10 @@ public class CriarAnuncioController implements Initializable {
     @FXML private Button registrar;
     @FXML private Button voltar;
     @FXML private Label mensagem;
+    
+    public CriarAnuncioController(){
+        initialize();
+    }
     
     public void clicouVoltar(ActionEvent event) throws IOException{
         Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaMercado.fxml"));
@@ -89,8 +93,8 @@ public class CriarAnuncioController implements Initializable {
         }
     }
      
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    @FXML
+    public void initialize() {
         ArrayList<String> lista = new ArrayList();
         lista.add("Cuias");
         lista.add("Carroças");
