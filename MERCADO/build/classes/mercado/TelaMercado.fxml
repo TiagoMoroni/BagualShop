@@ -10,46 +10,53 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="551.0" maxWidth="1020.0" prefHeight="550.0" prefWidth="985.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mercado.TelaMercadoController">
+<AnchorPane id="AnchorPane" maxHeight="574.0" maxWidth="1020.0" prefHeight="574.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mercado.TelaMercadoController">
    <children>
-      <Line layoutX="314.0" startY="573.0" />
-      <Line endX="606.0" layoutX="416.0" layoutY="92.0" startX="-100.0" strokeWidth="2.0" />
+      <Line layoutX="314.0" startY="573.0" strokeWidth="2.5" />
+      <Line endX="607.0" layoutX="416.0" layoutY="92.0" startX="-100.0" stroke="#0a0909" strokeWidth="2.5" />
       <ImageView fitHeight="574.0" fitWidth="760.0" layoutX="263.0" opacity="0.15" pickOnBounds="true">
          <image>
             <Image url="@background-gaucho-5.jpg" />
          </image>
       </ImageView>
-      <ScrollPane hbarPolicy="ALWAYS" layoutX="316.0" layoutY="92.0" prefHeight="482.0" prefWidth="707.0" vbarPolicy="ALWAYS">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
+      <ScrollPane hbarPolicy="ALWAYS" layoutX="314.0" layoutY="94.0" prefHeight="480.0" prefWidth="709.0" vbarPolicy="ALWAYS">
          <padding>
             <Insets right="56.0" />
          </padding>
       </ScrollPane>
-      <AnchorPane prefHeight="574.0" prefWidth="301.0" style="-fx-background-color: #2F1E17;">
+      <AnchorPane prefHeight="574.0" prefWidth="313.0" style="-fx-background-color: #2F1E17;">
          <children>
             <ImageView fitHeight="160.0" fitWidth="263.0" layoutX="19.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imageedit_10_3489691048.png" />
                </image>
             </ImageView>
-            <Label layoutX="30.0" layoutY="152.0" prefHeight="17.0" prefWidth="248.0" text="        LOJA ONLINE DE ITENS GAÚCHOS" textAlignment="CENTER" textFill="#d7d0d0" />
-            <Button layoutY="255.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ROUPAS" textFill="#7f5f4b" />
-            <Button layoutY="291.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ALIMENTOS" textFill="#7f5f4b" />
-            <Button layoutY="327.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CAVALOS" textFill="#7f5f4b" />
-            <Button layoutY="363.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CUIAS" textFill="#7f5f4b" />
-            <Button layoutY="399.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="305.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CARROÇA" textFill="#7f5f4b" />
+            <Label layoutX="30.0" layoutY="152.0" prefHeight="17.0" prefWidth="248.0" text="        LOJA ONLINE DE ITENS GAÚCHOS" textAlignment="CENTER" textFill="#8d6e13">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></Label>
+            <Button layoutY="255.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ROUPAS" textFill="#7f5f4b">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></Button>
+            <Button layoutY="291.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ALIMENTOS" textFill="#7f5f4b">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></Button>
+            <Button layoutY="327.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CAVALOS" textFill="#7f5f4b">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></Button>
+            <Button layoutY="363.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CUIAS" textFill="#7f5f4b">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></Button>
+            <Button layoutY="399.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CARROÇA" textFill="#7f5f4b" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="322.0" prefHeight="83.0" prefWidth="701.0" style="-fx-background-color: #2F1E17;">
+      <AnchorPane layoutX="315.0" prefHeight="91.0" prefWidth="709.0" style="-fx-background-color: #2F1E17;">
          <children>
-            <ImageView fitHeight="45.0" fitWidth="49.0" layoutX="522.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../MERCADO/src/mercado/IconeConta.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="nomeusuario" layoutX="573.0" layoutY="33.0" prefHeight="17.0" prefWidth="120.0" />
+            <Button fx:id="criaranuncio" layoutX="605.0" layoutY="33.0" mnemonicParsing="false" onAction="#clicouCriarAnuncio" text="Criar Anuncio" />
          </children>
       </AnchorPane>
    </children>

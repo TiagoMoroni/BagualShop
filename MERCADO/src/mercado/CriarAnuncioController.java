@@ -8,11 +8,17 @@ package mercado;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -34,54 +40,40 @@ public class CriarAnuncioController implements Initializable {
     @FXML private ChoiceBox recebetipo;
     @FXML private Button registrar;
     @FXML private Button voltar;
-    private String nome;
-    private float preco;
-    private String descricao;
-    private String tipo;
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public float getPreco() {
-        return preco;
-    }
-
-    public void setPreco(float preco) {
-        this.preco = preco;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    @FXML private Label mensagem;
+    
+    public void clicouVoltar(ActionEvent event) throws IOException{
+        Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaMercado.fxml"));
+        Scene telaLogadoScene = new Scene(telaLogadoParent);
+        Stage tela = (Stage)((Node)event.getSource()).getScene().getWindow();
+        tela.setScene(telaLogadoScene);
+        tela.show();    
+        tela.setTitle("BagualShop - Mercado");
     }
     
     public void clicouRegistrar(ActionEvent event){
         boolean erro;
+        String nome;
+        String descricao;
+        String tipo;
+        float preco;
+        preco = (float) 12.4;
         do{
             erro = true;
-            String nome = recebenome.getText();
-            String descricao = recebedescricao.getText();
-            String tipo = recebetipo.getValue().toString();
-            float preco = Float.parseFloat(recebepreco.getText());
-            
+            nome = recebenome.getText();
+            descricao = recebedescricao.getText();
+            tipo = recebetipo.getValue().toString();
+            preco = Float.parseFloat(recebepreco.getText());
+            char[] chararray = descricao. toCharArray();
+            if(tipo == null || tipo.equals("")){
+                erro = false;
+                mensagem.setText("Selecione um tipo válido");
+            }else if(chararray.length < 5){
+                erro = false;
+                mensagem.setText("Adicione uma descrição válida"); 
+            }
         
-        }while(erro == true);
+        }while(erro == false);
     
     }
     
@@ -99,7 +91,14 @@ public class CriarAnuncioController implements Initializable {
      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        ArrayList<String> lista = new ArrayList();
+        lista.add("Cuias");
+        lista.add("Carroças");
+        lista.add("Cavalos");
+        lista.add("Comidas");
+        lista.add("Roupas e Acessórios");
+        ObservableList<String> list = FXCollections.observableArrayList(lista);
+        recebetipo.setItems(list);
     }    
     
 }
