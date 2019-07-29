@@ -18,6 +18,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -75,7 +78,11 @@ public class TelaInicialController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         usuarios = new ArrayList();
-        usuarios.add(new Usuario("Tiago", "123"));
+        try {
+            usuarios.add(new Usuario("Tiago", "123"));
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInicialController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
 

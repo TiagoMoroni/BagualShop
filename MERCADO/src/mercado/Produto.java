@@ -1,9 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mercado;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javafx.scene.image.Image;
 
 public class Produto {
     
@@ -11,9 +12,40 @@ public class Produto {
     private String descricao;
     private float preco;
     private String nome;
+    private int id;
+    private Image imagemprod; 
+    private ArrayList<Produto> lista;
+
+    public Image getImagemprod() {
+        return imagemprod;
+    }
+
+    public void setImagemprod(Image imagemprod) {
+        this.imagemprod = imagemprod;
+    }
+
+    public ArrayList<Produto> getLista() {
+        return lista;
+    }
+
+    public void setLista(ArrayList<Produto> lista) {
+        this.lista = lista;
+    }
 
     public String getTipo() {
         return tipo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId() {
+        if (lista.size() == 0) {
+            this.id = 0;
+        }else{
+            this.id = lista.get(lista.size()).getId() + 1;
+        }    
     }
 
     public void setTipo(String tipo) {
@@ -43,12 +75,27 @@ public class Produto {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    public void setLista() throws SQLException {
+        try{    
+            Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/BancodeDados","root","root");
+            Class.forName ("com.mysql.jdbc.Driver").newInstance ();
+            System.out.println("Conectado!");
+            conexao.close();
+        }catch(Exception e){
+            System.err.println("NAO CONSEGUIU ENCONTRAR O BANCO");
+        }
+            this.lista = new ArrayList();
+    }
 
-    public Produto(String tipo, String descricao, float preco, String nome) {
+    public Produto(String tipo, String descricao, float preco, String nome, Image imagemprod) throws SQLException {
         this.tipo = tipo;
         this.descricao = descricao;
         this.preco = preco;
         this.nome = nome;
+        this.imagemprod = imagemprod;
+        setLista();
+        setId();
     }
    
 }

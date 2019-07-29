@@ -11,19 +11,24 @@
 
 <AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="775.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mercado.CriarAnuncioController">
    <children>
+      <ImageView fitHeight="545.0" fitWidth="775.0" pickOnBounds="true">
+         <image>
+            <Image url="@7YKUD.jpg" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="103.0" fitWidth="290.0" layoutX="87.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../MERCADO/src/mercado/imgonline-com-ua-Transparent-background-xoUWzsLLm0jpaMJ.png" />
+            <Image url="@imgonline-com-ua-Transparent-background-xoUWzsLLm0jpaMJ.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="308.0" fitWidth="414.0" layoutX="50.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagemprod" fitHeight="308.0" fitWidth="414.0" layoutX="50.0" layoutY="223.0" onMouseClicked="#clicouImagem" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../MERCADO/src/mercado/CriarAnuncio%20-%20imagem%20melhor.png" />
+            <Image url="@CriarAnuncio%20-%20imagem%20melhor.png" />
          </image>
       </ImageView>
-      <ChoiceBox layoutX="593.0" layoutY="93.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="recebetipo" layoutX="593.0" layoutY="93.0" prefWidth="150.0" />
       <Line endY="500.0" layoutX="400.0" layoutY="25.0" />
-      <Button layoutX="645.0" layoutY="397.0" mnemonicParsing="false" text="Registrar">
+      <Button fx:id="registrar" layoutX="645.0" layoutY="397.0" mnemonicParsing="false" onAction="#clicouRegistrar" text="Registrar">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
@@ -33,8 +38,8 @@
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Text>
-      <TextField layoutX="531.0" layoutY="189.0" prefHeight="173.0" prefWidth="213.0" />
-      <TextField layoutX="595.0" layoutY="140.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="recebedescricao" layoutX="531.0" layoutY="189.0" prefHeight="173.0" prefWidth="213.0" />
+      <TextField fx:id="recebepreco" layoutX="595.0" layoutY="140.0" prefHeight="25.0" prefWidth="149.0" />
       <Text layoutX="492.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço" textAlignment="RIGHT" wrappingWidth="93.0">
          <font>
             <Font name="Century Gothic" size="18.0" />
@@ -45,7 +50,7 @@
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Text>
-      <TextField layoutX="595.0" layoutY="52.0" />
+      <TextField fx:id="recebenome" layoutX="595.0" layoutY="52.0" />
       <Text layoutX="428.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição" textAlignment="RIGHT" wrappingWidth="93.0">
          <font>
             <Font name="Century Gothic" size="18.0" />
@@ -56,6 +61,11 @@
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Text>
-      <Button fx:id="voltar" layoutX="709.0" layoutY="501.0" mnemonicParsing="false" text="Voltar" />
+      <Button fx:id="voltar" layoutX="709.0" layoutY="501.0" mnemonicParsing="false" onAction="#clicouVoltar" text="Voltar" />
+      <Label fx:id="mensagem" layoutX="500.0" layoutY="446.0" prefHeight="35.0" prefWidth="253.0" textFill="RED">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
