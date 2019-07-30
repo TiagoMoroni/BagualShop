@@ -28,7 +28,9 @@ public class Mercado extends Application {
     
     
     public static void main(String[] args) {
+        Database bd = new Database("localhost",3306,"bagualshop", "root", "root");
         launch(args);
+        
     }
 
 }

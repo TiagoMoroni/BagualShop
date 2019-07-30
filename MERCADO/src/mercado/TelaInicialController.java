@@ -78,11 +78,8 @@ public class TelaInicialController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         usuarios = new ArrayList();
-        try {
-            usuarios.add(new Usuario("Tiago", "123"));
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaInicialController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        usuarios.add(new Usuario("tiago", "123"));
+
     }    
 
 

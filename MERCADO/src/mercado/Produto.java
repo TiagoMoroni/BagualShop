@@ -77,14 +77,6 @@ public class Produto {
     }
     
     public void setLista() throws SQLException {
-        try{    
-            Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/BancodeDados","root","root");
-            Class.forName ("com.mysql.jdbc.Driver").newInstance ();
-            System.out.println("Conectado!");
-            conexao.close();
-        }catch(Exception e){
-            System.err.println("NAO CONSEGUIU ENCONTRAR O BANCO");
-        }
             this.lista = new ArrayList();
     }
 

@@ -73,11 +73,9 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Usuario(String nome, String senha) throws SQLException {
+    public Usuario(String nome, String senha){
         this.nome = nome;
         this.senha = senha;
-        setLista();
-        setId();
     }   
     
 }

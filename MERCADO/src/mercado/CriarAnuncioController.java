@@ -119,10 +119,10 @@ public class CriarAnuncioController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         ArrayList<String> lista = new ArrayList();
         lista.add("Cuias");
-        lista.add("Carroças");
-        lista.add("Cavalos");
+        lista.add("Veículos e Acessórios");
         lista.add("Comidas");
         lista.add("Roupas e Acessórios");
+        lista.add("Outros");
         ObservableList<String> list = FXCollections.observableArrayList(lista);
         recebetipo.setItems(list);
         setLista();

@@ -110,10 +110,7 @@ public class TelaMercadoController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(TelaMercadoController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        scroll.setFitToHeight(true);
-        scroll.setFitToWidth(true);
-        SetarAnchor();
-        mostrarProdutos();
+
     }    
     
 }
