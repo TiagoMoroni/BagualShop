@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import mercado.Mercado;
 
 
 public class Usuario {
@@ -33,15 +34,7 @@ public class Usuario {
     }
 
     public void setLista() throws SQLException {
-        try{    
-            Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/BancodeDados","root","root");
-            Class.forName ("com.mysql.jdbc.Driver").newInstance ();
-            System.out.println("Conectado!");
-            conexao.close();
-        }catch(Exception e){
-            System.err.println("NAO CONSEGUIU ENCONTRAR O BANCO");
-        }
-            this.lista = new ArrayList();
+        this.lista = Mercado.storage.loadUsuarios();
     }
     
     public String getTipo() {
@@ -73,7 +66,9 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Usuario(String nome, String senha){
+    public Usuario(String nome, String senha) throws SQLException{
+        setLista();
+        setId();
         this.nome = nome;
         this.senha = senha;
     }   

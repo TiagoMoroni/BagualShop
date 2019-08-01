@@ -21,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
+import mercado.Mercado;
 
 /**
  * FXML Controller class
@@ -58,18 +59,9 @@ public class TelaMercadoController implements Initializable {
         return listaprod;
     }
 
-    public void setListaprod() throws SQLException {
-        try{    
-            Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/BancodeDados","root","root");
-            Class.forName ("com.mysql.jdbc.Driver").newInstance ();
-            System.out.println("Conectado!");
-            conexao.close();
-        }catch(Exception e){
-            System.err.println("NAO CONSEGUIU ENCONTRAR O BANCO");
-        }
-            this.listaprod = new ArrayList();
-    }
-    
+    public void setListaProd(){
+        this.listaprod = Mercado.storage.loadProdutos();
+    }   
     
     @FXML
     public void clicouCriarAnuncio(ActionEvent event) throws IOException{
@@ -105,11 +97,7 @@ public class TelaMercadoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb)  {
-        try {
-            setListaprod();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaMercadoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        setListaProd();
 
     }    
     

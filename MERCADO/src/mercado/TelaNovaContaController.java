@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import mercado.Mercado;
 
 
 public class TelaNovaContaController implements Initializable {
@@ -39,7 +40,7 @@ public class TelaNovaContaController implements Initializable {
         for(Usuario usu : usuarios){
             if (recebenome.getText().equals(usu.getNome())) {
                 temp = false;
-                alo.setText("DIGITE UM NOOME DIFERENTE!!!");
+                alo.setText("DIGITE UM NOME DIFERENTE!!!");
                 break;
             }
         }
@@ -65,12 +66,15 @@ public class TelaNovaContaController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        usuarios = new ArrayList();
-        usuarios.add(new Usuario("Tiago", "123", "admin"));
+            setLista();
     }
 
     public void registrarUsuario(Usuario usu) {
-        usuarios.add(usu);
+        Mercado.storage.addUsuario(usu);
+    }
+
+    private void setLista() {
+        Mercado.storage.loadUsuarios();
     }
     
 }

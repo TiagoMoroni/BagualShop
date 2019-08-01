@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
+import mercado.Mercado;
 
 public class Produto {
     
@@ -28,8 +29,8 @@ public class Produto {
         return lista;
     }
 
-    public void setLista(ArrayList<Produto> lista) {
-        this.lista = lista;
+    public void setLista() {
+        this.lista = Mercado.storage.loadProdutos();
     }
 
     public String getTipo() {
@@ -75,19 +76,15 @@ public class Produto {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    public void setLista() throws SQLException {
-            this.lista = new ArrayList();
-    }
 
     public Produto(String tipo, String descricao, float preco, String nome, Image imagemprod) throws SQLException {
+        setLista();
+        setId();        
         this.tipo = tipo;
         this.descricao = descricao;
         this.preco = preco;
         this.nome = nome;
         this.imagemprod = imagemprod;
-        setLista();
-        setId();
     }
    
 }

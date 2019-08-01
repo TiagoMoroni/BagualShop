@@ -5,6 +5,12 @@
  */
 package mercado;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javafx.scene.image.Image;
+
 /**
  *
  * @author 05200244
@@ -43,5 +49,43 @@ public class BagualShopStorage extends Database{
             prod.getDescricao(),
             prod.getImagemprod());
     }
+    
+    public ArrayList<Usuario> loadUsuarios() {
+        ArrayList<Usuario> lista = new ArrayList();
+        try {
+            PreparedStatement statement = getConnection().prepareStatement("SELECT * FROM " + USUARIOS);
 
+
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                Usuario usu = new Usuario(result.getString("nome"), result.getString("senha"));
+                lista.add(usu);
+            }
+            result.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+    
+    public ArrayList<Produto> loadProdutos() {
+    ArrayList<Produto> lista = new ArrayList();
+    try {
+        PreparedStatement statement = getConnection().prepareStatement("SELECT * FROM " + PRODUTOS);
+
+
+        ResultSet result = statement.executeQuery();
+        while (result.next()) {
+            Produto prod = new Produto(result.getString("tipo"), result.getString("descricao"), result.getFloat("preco"), result.getString("nome"), (Image) result.getBlob("imagemprod"));
+            lista.add(prod);
+        }
+        result.close();
+        statement.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return lista;
 }
+}
+

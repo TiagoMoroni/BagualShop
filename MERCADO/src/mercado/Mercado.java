@@ -17,7 +17,8 @@ import javafx.stage.Stage;
 
 public class Mercado extends Application {
     
-
+    public static BagualShopStorage storage; 
+    
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
@@ -28,8 +29,9 @@ public class Mercado extends Application {
     
     
     public static void main(String[] args) {
-        Database bd = new Database("localhost",3306,"bagualshop", "root", "root");
+        storage = new BagualShopStorage("localhost",3306,"bagualshop", "root", "root");
         launch(args);
+        
         
     }
 

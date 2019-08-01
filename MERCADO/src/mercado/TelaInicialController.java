@@ -26,6 +26,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import mercado.Mercado;
 
 /**
  *
@@ -73,12 +74,14 @@ public class TelaInicialController implements Initializable {
         tela.setTitle("BagualShop - Registro");
     
     }
-   
+
+    private void setLista() {
+        usuarios = Mercado.storage.loadUsuarios();
+    }    
             
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        usuarios = new ArrayList();
-        usuarios.add(new Usuario("tiago", "123"));
+        setLista();
 
     }    
 
