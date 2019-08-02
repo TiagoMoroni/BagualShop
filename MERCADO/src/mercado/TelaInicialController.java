@@ -27,6 +27,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import mercado.Mercado;
+import mercado.TelaNovaContaController;
 
 /**
  *
@@ -62,6 +63,9 @@ public class TelaInicialController implements Initializable {
                 statuslogin.setText("Usuario Não Existe");
             }
         }
+        if(usuarios.size() == 0){
+            statuslogin.setText("Usuário não existe");
+        }
     }
     
     @FXML
@@ -82,7 +86,7 @@ public class TelaInicialController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setLista();
-
+        System.out.println("dey erro aquui");
     }    
 
 

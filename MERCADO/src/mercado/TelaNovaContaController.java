@@ -31,7 +31,7 @@ public class TelaNovaContaController implements Initializable {
     @FXML private TextField recebenome;
     @FXML private Label alo;
     @FXML private Button voltar;
-    private ArrayList<Usuario> usuarios;
+    public ArrayList<Usuario> usuarios;
     
     
     @FXML
@@ -74,7 +74,7 @@ public class TelaNovaContaController implements Initializable {
     }
 
     private void setLista() {
-        Mercado.storage.loadUsuarios();
+        usuarios = Mercado.storage.loadUsuarios();
     }
     
 }

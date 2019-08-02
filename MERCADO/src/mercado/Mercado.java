@@ -7,6 +7,10 @@ package mercado;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,6 +22,7 @@ import javafx.stage.Stage;
 public class Mercado extends Application {
     
     public static BagualShopStorage storage; 
+    public ArrayList<Usuario> listausuarios;
     
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -28,8 +33,8 @@ public class Mercado extends Application {
     }
     
     
-    public static void main(String[] args) {
-        storage = new BagualShopStorage("localhost",3306,"bagualshop", "root", "root");
+    public static void main(String[] args) throws SQLException {
+        storage = new BagualShopStorage("127.0.0.1",3306,"bagualshop", "root", "root");
         launch(args);
         
         

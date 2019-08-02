@@ -17,8 +17,8 @@ import javafx.scene.image.Image;
  */
 public class BagualShopStorage extends Database{
     
-    private final String PRODUTOS = "produtos";
-    private final String USUARIOS = "usuarios";
+    private final String PRODUTOS = "item";
+    private final String USUARIOS = "usuario";
     
     public BagualShopStorage(String host, Integer port, String database, String user, String password) {
     super(host, port, database, user, password);
@@ -35,14 +35,15 @@ public class BagualShopStorage extends Database{
             + "value VARCHAR(256) NOT NULL);");
     }
 
+    
     public void addUsuario(Usuario usu) {
-        query("INSERT INTO " + USUARIOS + " (Nome, Senha) VALUES (?, ?);",
+        query("INSERT INTO " + USUARIOS + " (nome, senha) VALUES (?, ?);",
                 usu.getNome(),
                 usu.getSenha());
     }
     
     public void addProduto(Produto prod) {
-    query("INSERT INTO " + PRODUTOS + " (Nome, Preco, Tipo, Descrição, ImagemProd) VALUES (?, ?, ?, ?, ?);",
+    query("INSERT INTO " + PRODUTOS + " (nome, preco, tipo, descrição, imagemProd) VALUES (?, ?, ?, ?, ?);",
             prod.getNome(),
             prod.getPreco(),
             prod.getTipo(),
@@ -65,6 +66,7 @@ public class BagualShopStorage extends Database{
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("deu erro");
         }
         return lista;
     }

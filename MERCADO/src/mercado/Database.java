@@ -31,7 +31,7 @@ public class Database {
         try {
             String connectionString = String.format("jdbc:mysql://%s:%s/%s?autoReconnect=true", host, port, database);
             try {
-                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             } catch (InstantiationException | IllegalAccessException exception) {
                 exception.printStackTrace();
             }
