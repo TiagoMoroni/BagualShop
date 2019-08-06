@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mercado;
 
 import java.io.IOException;
@@ -21,7 +16,7 @@ import javafx.stage.Stage;
 
 public class Mercado extends Application {
     
-    public static BagualShopStorage storage; 
+    public static ConexaoBD storage; 
     public ArrayList<Usuario> listausuarios;
     
     @Override
@@ -34,7 +29,7 @@ public class Mercado extends Application {
     
     
     public static void main(String[] args) throws SQLException {
-        storage = new BagualShopStorage("127.0.0.1",3306,"bagualshop", "root", "root");
+        storage = new ConexaoBD();
         launch(args);
         
         
