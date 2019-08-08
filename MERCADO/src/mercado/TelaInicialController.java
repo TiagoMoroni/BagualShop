@@ -79,14 +79,17 @@ public class TelaInicialController implements Initializable {
     
     }
 
-    private void setLista() {
-        usuarios = Mercado.storage.loadUsuarios();
+    private void setLista() throws Exception {
+        usuarios = Mercado.conexaobd.loadUsuarios();
     }    
             
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setLista();
-        System.out.println("dey erro aquui");
+        try {
+            setLista();
+        } catch (Exception ex) {
+            Logger.getLogger(TelaInicialController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
 

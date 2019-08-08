@@ -27,6 +27,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
+import mercado.Mercado;
 
 /**
  * FXML Controller class
@@ -70,7 +71,7 @@ public class CriarAnuncioController implements Initializable{
     }
     
     @FXML
-    public void clicouRegistrar(ActionEvent event) throws SQLException{
+    public void clicouRegistrar(ActionEvent event) throws SQLException, Exception{
         boolean erro;
         do{
             erro = true;
@@ -96,6 +97,7 @@ public class CriarAnuncioController implements Initializable{
         mensagem.setText("Produto Registrado Com Sucesso!");
         Produto prod = new Produto(tipo, descricao, preco, nome, imagem);
         lista.add(prod);
+        Mercado.conexaobd.addProduto(prod);       
     }
     
 

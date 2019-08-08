@@ -9,9 +9,10 @@ create table usuario(
 );
 
 create table item(
-	preco float,
+    preco float,
+    nome varchar(100),
     item_id int primary key auto_increment,
     tipo varchar(300),
-	descricao varchar(1000),
+    descricao varchar(1000),
     imagem_prod blob
 );

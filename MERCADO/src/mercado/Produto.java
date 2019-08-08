@@ -29,8 +29,8 @@ public class Produto {
         return lista;
     }
 
-    public void setLista() {
-        this.lista = Mercado.storage.loadProdutos();
+    public void setLista() throws Exception {
+        this.lista = Mercado.conexaobd.loadProdutos();
     }
 
     public String getTipo() {
@@ -77,7 +77,7 @@ public class Produto {
         this.nome = nome;
     }
 
-    public Produto(String tipo, String descricao, float preco, String nome, Image imagemprod) throws SQLException {
+    public Produto(String tipo, String descricao, float preco, String nome, Image imagemprod) throws SQLException, Exception {
         setLista();
         setId();        
         this.tipo = tipo;

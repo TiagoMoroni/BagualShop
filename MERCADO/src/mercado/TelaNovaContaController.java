@@ -8,6 +8,7 @@ package mercado;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -35,7 +36,7 @@ public class TelaNovaContaController implements Initializable {
     
     
     @FXML
-    public void apertouRegistrar(ActionEvent event){
+    public void apertouRegistrar(ActionEvent event) throws SQLException, Exception{
         boolean temp = true;
         for(Usuario usu : usuarios){
             if (recebenome.getText().equals(usu.getNome())) {
@@ -66,15 +67,19 @@ public class TelaNovaContaController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try {
             setLista();
+        } catch (Exception ex) {
+            Logger.getLogger(TelaNovaContaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public void registrarUsuario(Usuario usu) {
-        Mercado.storage.addUsuario(usu);
+    public void registrarUsuario(Usuario usu) throws SQLException, Exception {
+        Mercado.conexaobd.addUsuario(usu);
     }
 
-    private void setLista() {
-        usuarios = Mercado.storage.loadUsuarios();
+    private void setLista() throws Exception {
+        usuarios = Mercado.conexaobd.loadUsuarios();
     }
     
 }

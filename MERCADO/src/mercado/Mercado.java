@@ -16,8 +16,8 @@ import javafx.stage.Stage;
 
 public class Mercado extends Application {
     
-    public static ConexaoBD storage; 
     public ArrayList<Usuario> listausuarios;
+    public static ComandosBD conexaobd = new ComandosBD();
     
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -29,7 +29,6 @@ public class Mercado extends Application {
     
     
     public static void main(String[] args) throws SQLException {
-        storage = new ConexaoBD();
         launch(args);
         
         

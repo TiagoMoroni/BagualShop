@@ -33,8 +33,8 @@ public class Usuario {
         return lista;
     }
 
-    public void setLista() throws SQLException {
-        this.lista = Mercado.storage.loadUsuarios();
+    public void setLista() throws SQLException, Exception {
+        this.lista = Mercado.conexaobd.loadUsuarios();
     }
     
     public String getTipo() {
@@ -66,9 +66,10 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Usuario(String nome, String senha) throws SQLException{
+    public Usuario(String nome, String senha, int id) throws SQLException{
         this.nome = nome;
         this.senha = senha;
+        this.id = id;
     }   
     
 }

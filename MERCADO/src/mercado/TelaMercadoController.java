@@ -59,8 +59,8 @@ public class TelaMercadoController implements Initializable {
         return listaprod;
     }
 
-    public void setListaProd(){
-        this.listaprod = Mercado.storage.loadProdutos();
+    public void setListaProd() throws Exception{
+        this.listaprod = Mercado.conexaobd.loadProdutos();
     }   
     
     @FXML
@@ -97,7 +97,11 @@ public class TelaMercadoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb)  {
-        setListaProd();
+        try {
+            setListaProd();
+        } catch (Exception ex) {
+            Logger.getLogger(TelaMercadoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }    
     
