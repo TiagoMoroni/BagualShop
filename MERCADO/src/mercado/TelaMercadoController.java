@@ -17,6 +17,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
@@ -37,6 +39,7 @@ public class TelaMercadoController implements Initializable {
     private Usuario usuatual;
     private ArrayList<Produto> listaprod;
     @FXML private ArrayList<AnchorPane> listapainel;
+    @FXML private Image imagemtestemete;
     
 
     public ArrayList<AnchorPane> getListapainel() {
@@ -102,6 +105,7 @@ public class TelaMercadoController implements Initializable {
         } catch (Exception ex) {
             Logger.getLogger(TelaMercadoController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        imagemtestemete.setImage(listaprod.get(1).getImagemprod());
 
     }    
     

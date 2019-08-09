@@ -77,7 +77,16 @@ public class Produto {
         this.nome = nome;
     }
 
-    public Produto(String tipo, String descricao, float preco, String nome, Image imagemprod) throws SQLException, Exception {
+    public Produto(String tipo, String descricao, float preco, String nome, Image imagemprod, int id) throws SQLException, Exception {      
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.nome = nome;
+        this.imagemprod = imagemprod;
+        this.id = id;
+    }
+    
+        public Produto(String tipo, String descricao, float preco, String nome, Image imagemprod) throws SQLException, Exception {
         setLista();
         setId();        
         this.tipo = tipo;

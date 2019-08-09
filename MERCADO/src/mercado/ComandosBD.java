@@ -7,6 +7,8 @@ package mercado;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Connection;
@@ -52,16 +54,20 @@ public class ComandosBD {
     public static void addProduto(Produto prod) throws SQLException, Exception {
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         Connection con = ConexaoBD.getConnection();
-        String sql = "INSERT INTO usuario (tipo, descricao, preco, nome, item_id, imagem_prod) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO item (preco, nome, item_id, tipo, descricao, imagem_prod) VALUES (?,?,?,?,?,?)";
         PreparedStatement stmt = null;
         try {
             stmt = (PreparedStatement) con.prepareStatement(sql);
-            stmt.setString(1, prod.getTipo());
-            stmt.setString(2, prod.getDescricao());
-            stmt.setFloat(3, prod.getPreco());
-            stmt.setString(4, prod.getNome());
-            stmt.setInt(5, prod.getId());
-            stmt.setBlob(6, (Blob) prod.getImagemprod());
+            stmt.setString(4, prod.getTipo());
+            stmt.setString(5, prod.getDescricao());
+            stmt.setFloat(1, prod.getPreco());
+            stmt.setString(2, prod.getNome());
+            stmt.setInt(3, prod.getId());
+            BufferedImage imagembuffered = SwingFXUtils.fromFXImage(prod.getImagemprod(), null);
+            File file  = new File("image.jpg");
+            ImageIO.write(imagembuffered, "jpg", file );
+            FileInputStream fis = new FileInputStream ( file );
+            stmt.setBinaryStream(6, fis);
             stmt.executeUpdate();
             
         } catch (SQLException ex) {
@@ -71,7 +77,8 @@ public class ComandosBD {
             ConexaoBD.closeConnection(con, stmt);
         }
         
-    }    
+    } 
+    
     
     public static ArrayList loadUsuarios() throws SQLException, Exception {
         ArrayList<Usuario> lista = new ArrayList();
@@ -101,11 +108,12 @@ public class ComandosBD {
             String descricao = rs.getString("descricao");
             float preco = rs.getFloat("preco");
             String nome = rs.getString("nome");
-            java.sql.Blob blob = rs.getBlob("imagem_prod");  
+            java.sql.Blob blob = rs.getBlob("imagem_prod");
+            int id = rs.getInt("item_id");
             InputStream in = blob.getBinaryStream();  
             BufferedImage image = ImageIO.read(in);
-            BufferedImage imagem = image;
-            lista.add(new Produto(tipo, descricao, preco, nome, imagem));
+            Image imagem = SwingFXUtils.toFXImage(image, null);
+            lista.add(new Produto(tipo, descricao, preco, nome, imagem, id));
         }
         con.close();
         return lista;
