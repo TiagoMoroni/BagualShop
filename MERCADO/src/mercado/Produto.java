@@ -86,14 +86,12 @@ public class Produto {
         this.id = id;
     }
     
-        public Produto(String tipo, String descricao, float preco, String nome, Image imagemprod) throws SQLException, Exception {
-        setLista();
-        setId();        
-        this.tipo = tipo;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.nome = nome;
-        this.imagemprod = imagemprod;
+        public Produto(String tipo, String descricao, float preco, String nome, Image imagemprod) throws SQLException, Exception {    
+            this.tipo = tipo;
+            this.descricao = descricao;
+            this.preco = preco;
+            this.nome = nome;
+            this.imagemprod = imagemprod;
     }
    
 }

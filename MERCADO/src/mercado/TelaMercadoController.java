@@ -24,6 +24,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import mercado.Mercado;
+import mercado.TelaInicialController;
 
 /**
  * FXML Controller class
@@ -36,10 +37,10 @@ public class TelaMercadoController implements Initializable {
     @FXML private Button criaranuncio;
     @FXML private ScrollPane scroll;
     @FXML private Pane grandao;
-    private Usuario usuatual;
     private ArrayList<Produto> listaprod;
     @FXML private ArrayList<AnchorPane> listapainel;
-    @FXML private Image imagemtestemete;
+    @FXML private ImageView imagemtestemete;
+    public static Usuario usuarioatual = TelaInicialController.usuarioatual;
     
 
     public ArrayList<AnchorPane> getListapainel() {
@@ -49,15 +50,7 @@ public class TelaMercadoController implements Initializable {
     public void setListapainel(ArrayList<AnchorPane> listapainel) {
         this.listapainel = listapainel;
     }
-
-    public Usuario getUsuatual() {
-        return usuatual;
-    }
-
-    public void setUsuatual(Usuario usuatual) {
-        this.usuatual = usuatual;
-    }
-
+    
     public ArrayList<Produto> getListaprod() {
         return listaprod;
     }
@@ -85,7 +78,7 @@ public class TelaMercadoController implements Initializable {
     }
     
     @FXML
-    public void SetarAnchor(){
+    public void setarAnchor(){
         Line linhacentro = new Line();
         linhacentro.setStartX(scroll.getLayoutX()+scroll.getWidth()/2);
         linhacentro.setStartY(scroll.getLayoutY());
@@ -95,17 +88,18 @@ public class TelaMercadoController implements Initializable {
     
     @FXML
     public void mostraNomeUsuario() throws IOException{
-        nomeusuario.setText(usuatual.getNome());
+        nomeusuario.setText(usuarioatual.getNome());
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb)  {
         try {
             setListaProd();
+            mostraNomeUsuario();
         } catch (Exception ex) {
-            Logger.getLogger(TelaMercadoController.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Deu erro TelaMercadoController");
         }
-        imagemtestemete.setImage(listaprod.get(1).getImagemprod());
+        
 
     }    
     

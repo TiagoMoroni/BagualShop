@@ -41,6 +41,7 @@ public class TelaInicialController implements Initializable {
     @FXML private PasswordField recebesenha;
     @FXML private Button botaoregistrar;
     public ArrayList<Usuario> usuarios;
+    public static Usuario usuarioatual;
    
 
     
@@ -49,6 +50,7 @@ public class TelaInicialController implements Initializable {
         for (Usuario usuario : usuarios) {
             if(recebeusuario.getText().equals(usuario.getNome())){
                 if(usuario.getSenha().equals(recebesenha.getText())){
+                    usuarioatual = usuario;
                     Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaMercado.fxml"));
                     Scene telaLogadoScene = new Scene(telaLogadoParent);
                     Stage tela = (Stage)((Node)event.getSource()).getScene().getWindow();

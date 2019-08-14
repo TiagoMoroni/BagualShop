@@ -29,6 +29,11 @@ public class Usuario {
         }    
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "nome=" + nome + ", senha=" + senha + "}";
+    }
+
     public ArrayList<Usuario> getLista() {
         return lista;
     }

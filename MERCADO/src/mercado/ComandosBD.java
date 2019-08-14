@@ -96,7 +96,7 @@ public class ComandosBD {
         con.close();
         return lista;
     }
-
+    
     public static ArrayList<Produto> loadProdutos() throws SQLException, Exception {
         ArrayList<Produto> lista = new ArrayList();
         Connection con = ConexaoBD.getConnection();
@@ -117,7 +117,28 @@ public class ComandosBD {
         }
         con.close();
         return lista;
-    }       
-
+    } 
+    
+        public static ArrayList<Produto> loadCarrinho(Usuario usu) throws SQLException, Exception {
+        ArrayList<Produto> lista = new ArrayList();
+        Connection con = ConexaoBD.getConnection();
+        Statement st = con.createStatement();
+        String sql = ("SELECT item.* FROM carrinho, item, usuario where usuario.usuario_id =" +usu.getId()+ "and carrinho.usuario_id = usuario.usuario_id and carrinho.item_id = item.item_id;");
+        ResultSet rs = st.executeQuery(sql);
+        while ( rs.next() ) {
+            String tipo = rs.getString("tipo");
+            String descricao = rs.getString("descricao");
+            float preco = rs.getFloat("preco");
+            String nome = rs.getString("nome");
+            java.sql.Blob blob = rs.getBlob("imagem_prod");
+            int id = rs.getInt("item_id");
+            InputStream in = blob.getBinaryStream();  
+            BufferedImage image = ImageIO.read(in);
+            Image imagem = SwingFXUtils.toFXImage(image, null);
+            lista.add(new Produto(tipo, descricao, preco, nome, imagem, id));
+        }
+        con.close();
+        return lista;
+    }
 
 }

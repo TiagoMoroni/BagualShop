@@ -59,6 +59,9 @@
             <Button layoutX="194.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Pesquisar" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="315.0" prefHeight="92.0" prefWidth="709.0" style="-fx-background-color: #2F1E17;" />
+      <AnchorPane layoutX="315.0" prefHeight="92.0" prefWidth="709.0" style="-fx-background-color: #2F1E17;">
+         <children>
+            <Label layoutX="591.0" layoutY="28.0" prefHeight="37.0" prefWidth="88.0" textFill="WHITE" />
+         </children></AnchorPane>
    </children>
 </AnchorPane>
