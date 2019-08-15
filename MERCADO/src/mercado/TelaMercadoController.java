@@ -36,11 +36,11 @@ public class TelaMercadoController implements Initializable {
     @FXML private Label nomeusuario;
     @FXML private Button criaranuncio;
     @FXML private ScrollPane scroll;
-    @FXML static Pane grandao;
+    @FXML public static Pane grandao;
     private ArrayList<Produto> listaprod;
     @FXML private ArrayList<AnchorPane> listapainel;
     @FXML private ImageView imagemtestemete;
-    public static Usuario usuarioatual = TelaInicialController.usuarioatual;
+    public Usuario usuarioatual = TelaInicialController.usuarioatual;
     
 
     public ArrayList<AnchorPane> getListapainel() {
@@ -87,15 +87,15 @@ public class TelaMercadoController implements Initializable {
     }
     
     @FXML
-    public void mostraNomeUsuario() throws IOException{
-        nomeusuario.setText(usuarioatual.getNome());
+    public void mostraNomeUsuario(String str) throws IOException{
+        nomeusuario.setText(str);
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb)  {
         try {
             setListaProd();
-            mostraNomeUsuario();
+            mostraNomeUsuario(usuarioatual.getNome());
         } catch (Exception ex) {
             System.err.println("Deu erro TelaMercadoController");
         }

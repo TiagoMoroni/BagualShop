@@ -14,7 +14,7 @@ public class MostraProduto {
     @FXML private AnchorPane anchor = new AnchorPane();
     @FXML private Label nomeprecoprod;
     @FXML private ImageView imagemprod;
-    @FXML private Label precoprod;
+    @FXML private Label descricaoprod;
     private Produto prod;
     private int locx;
     private Pane grandao = TelaMercadoController.grandao;
