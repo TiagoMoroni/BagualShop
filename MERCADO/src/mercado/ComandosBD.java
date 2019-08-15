@@ -118,6 +118,26 @@ public class ComandosBD {
         con.close();
         return lista;
     } 
+
+    public static void addCarrinho(Produto prod, Usuario usu) throws SQLException, Exception {
+        Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+        Connection con = ConexaoBD.getConnection();
+        String sql = "INSERT INTO carrinho (item_id, usuario_id) VALUES (?,?)";
+        PreparedStatement stmt = null;
+        try {
+            stmt = (PreparedStatement) con.prepareStatement(sql);
+            stmt.setInt(1, prod.getId());
+            stmt.setInt(2, usu.getId());
+            stmt.executeUpdate();
+            
+        } catch (SQLException ex) {
+            System.err.println("Erro " + ex);
+            
+        } finally {
+            ConexaoBD.closeConnection(con, stmt);
+        }
+        
+    }     
     
         public static ArrayList<Produto> loadCarrinho(Usuario usu) throws SQLException, Exception {
         ArrayList<Produto> lista = new ArrayList();

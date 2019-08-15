@@ -19,12 +19,12 @@
             <Image url="@background-gaucho-5.jpg" />
          </image>
       </ImageView>
-      <ScrollPane hbarPolicy="ALWAYS" layoutX="315.0" layoutY="93.0" opacity="0.56" prefHeight="480.0" prefWidth="709.0" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="ALWAYS" layoutX="315.0" layoutY="93.0" opacity="0.56" prefHeight="480.0" prefWidth="710.0" vbarPolicy="ALWAYS">
          <padding>
             <Insets right="56.0" />
          </padding>
          <content>
-            <ImageView fx:id="imagemtestemete" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imagemtestemete" fitHeight="355.0" fitWidth="355.0" pickOnBounds="true" preserveRatio="true" />
          </content>
       </ScrollPane>
       <AnchorPane prefHeight="574.0" prefWidth="313.0" style="-fx-background-color: #2F1E17;">
@@ -59,7 +59,7 @@
             <Button layoutX="194.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Pesquisar" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="315.0" prefHeight="92.0" prefWidth="709.0" style="-fx-background-color: #2F1E17;">
+      <AnchorPane layoutX="315.0" prefHeight="92.0" prefWidth="710.0" style="-fx-background-color: #2F1E17;">
          <children>
             <Label layoutX="591.0" layoutY="28.0" prefHeight="37.0" prefWidth="88.0" textFill="WHITE" />
          </children></AnchorPane>

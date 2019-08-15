@@ -36,7 +36,7 @@ public class TelaMercadoController implements Initializable {
     @FXML private Label nomeusuario;
     @FXML private Button criaranuncio;
     @FXML private ScrollPane scroll;
-    @FXML private Pane grandao;
+    @FXML static Pane grandao;
     private ArrayList<Produto> listaprod;
     @FXML private ArrayList<AnchorPane> listapainel;
     @FXML private ImageView imagemtestemete;
