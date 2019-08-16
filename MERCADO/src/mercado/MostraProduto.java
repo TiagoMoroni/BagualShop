@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
 import mercado.TelaMercadoController;
 
 public class MostraProduto {
@@ -17,7 +18,7 @@ public class MostraProduto {
     @FXML private Label descricaoprod;
     private Produto prod;
     private int locx;
-    private Pane grandao = TelaMercadoController.grandao;
+    private TilePane grandao = TelaMercadoController.grandao;
     private int locy;
 
     public MostraProduto(Produto prod, int locx, int locy) {

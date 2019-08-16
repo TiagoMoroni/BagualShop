@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import mercado.Mercado;
@@ -36,7 +37,7 @@ public class TelaMercadoController implements Initializable {
     @FXML private Label nomeusuario;
     @FXML private Button criaranuncio;
     @FXML private ScrollPane scroll;
-    @FXML public static Pane grandao;
+    @FXML public static TilePane grandao;
     private ArrayList<Produto> listaprod;
     @FXML private ArrayList<AnchorPane> listapainel;
     @FXML private ImageView imagemtestemete;
