@@ -143,7 +143,7 @@ public class ComandosBD {
         ArrayList<Produto> lista = new ArrayList();
         Connection con = ConexaoBD.getConnection();
         Statement st = con.createStatement();
-        String sql = ("SELECT item.* FROM carrinho, item, usuario where usuario.usuario_id =" +usu.getId()+ "and carrinho.usuario_id = usuario.usuario_id and carrinho.item_id = item.item_id;");
+        String sql = ("SELECT item.* FROM carrinho, item, usuario where usuario.usuario_id =" +usu.getId()+ " and carrinho.usuario_id = usuario.usuario_id and carrinho.item_id = item.item_id;");
         ResultSet rs = st.executeQuery(sql);
         while ( rs.next() ) {
             String tipo = rs.getString("tipo");

@@ -1,5 +1,6 @@
 package mercado;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
@@ -34,14 +37,21 @@ import mercado.TelaInicialController;
  */
 public class TelaMercadoController implements Initializable {
 
-    @FXML private Label nomeusuario;
-    @FXML private Button criaranuncio;
-    @FXML private ScrollPane scroll;
-    @FXML public static TilePane grandao;
+    private Label nomeusuario;
+    private ScrollPane scroll;
+    public static TilePane grandao;
     private ArrayList<Produto> listaprod;
-    @FXML private ArrayList<AnchorPane> listapainel;
-    @FXML private ImageView imagemtestemete;
+    private ArrayList<AnchorPane> listapainel;
     public Usuario usuarioatual = TelaInicialController.usuarioatual;
+    public static Produto prodatual;
+    @FXML
+    private ImageView imagemprod;
+    @FXML
+    private Label nomeprod;
+    @FXML
+    private Label precoprod;
+    @FXML
+    private AnchorPane painel;
     
 
     public ArrayList<AnchorPane> getListapainel() {
@@ -60,7 +70,6 @@ public class TelaMercadoController implements Initializable {
         this.listaprod = Mercado.conexaobd.loadProdutos();
     }   
     
-    @FXML
     public void clicouCriarAnuncio(ActionEvent event) throws IOException{
         Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("CriarAnuncio.fxml"));
         Scene telaLogadoScene = new Scene(telaLogadoParent);
@@ -70,15 +79,15 @@ public class TelaMercadoController implements Initializable {
         tela.setTitle("BagualShop - Criar Anúncio");
     }
     
-    @FXML
     public void mostrarProdutos(){
-        for(Produto prod:listaprod){
+        for (int i = 0; i < listaprod.size(); i++) {
             
+        }
+        for(Produto prod:listaprod){
         } 
     
     }
     
-    @FXML
     public void setarAnchor(){
         Line linhacentro = new Line();
         linhacentro.setStartX(scroll.getLayoutX()+scroll.getWidth()/2);
@@ -87,9 +96,33 @@ public class TelaMercadoController implements Initializable {
         linhacentro.setEndX(scroll.getLayoutX()+scroll.getWidth()/2);
     }
     
-    @FXML
     public void mostraNomeUsuario(String str) throws IOException{
         nomeusuario.setText(str);
+    }
+    
+    @FXML
+    public void clicouPainel(MouseEvent event) throws IOException{
+        System.out.println("LCICOICUIOUAD");
+        Image imagem = null;
+        AnchorPane painel = (AnchorPane) event.getSource();
+        AnchorPane painelgrandao = (AnchorPane) painel.getParent();
+        ObservableList<Node> lista= painelgrandao.getChildren();
+        for (Node node : lista) {
+            if (node.getClass().getName().equals("javafx.scene.image.Image")) {
+                imagem = ((ImageView) node).getImage();
+            }
+        }
+        for(Produto prod : listaprod){
+            if (prod.getImagemprod().equals(imagem)) {
+                prodatual = prod;
+                Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaMostraProdutos.fxml"));
+                Scene telaLogadoScene = new Scene(telaLogadoParent);
+                Stage tela = (Stage)((Node)event.getSource()).getScene().getWindow();
+                tela.setScene(telaLogadoScene);
+                tela.show();    
+                tela.setTitle("BagualShop - " +prodatual.getNome());
+            }
+        }
     }
     
     @Override
@@ -97,6 +130,8 @@ public class TelaMercadoController implements Initializable {
         try {
             setListaProd();
             mostraNomeUsuario(usuarioatual.getNome());
+            File file = new File("C:\\Users\\Tiago\\Desktop\\cuia.jpg");
+            imagemprod.setImage(file);
         } catch (Exception ex) {
             System.err.println("Deu erro TelaMercadoController");
         }

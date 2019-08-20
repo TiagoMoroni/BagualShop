@@ -7,21 +7,63 @@ package mercado;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import mercado.Mercado;
+import mercado.TelaMercadoController;
+import mercado.TelaInicialController;
 
-/**
- * FXML Controller class
- *
- * @author 05200244
- */
 public class TelaMostraProdutosController implements Initializable {
+    @FXML
+    private ImageView fotoproduto;
+    @FXML
+    private Label precoproduto;
+    @FXML
+    private Label nomeproduto;
+    @FXML
+    private Label descproduto;
+    private Produto prod = TelaMercadoController.prodatual;
+    private ComandosBD bd = Mercado.conexaobd;
+    private Usuario usu = TelaInicialController.usuarioatual;
+    @FXML
+    private Button botaocomprar;
+    @FXML
+    private Label label;
+    @FXML
+    private Button botaovoltar;
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        fotoproduto.setImage(prod.getImagemprod());
+        precoproduto.setText(Float.toString(prod.getPreco()));
+        nomeproduto.setText(prod.getNome());
+        descproduto.setText(prod.getDescricao());       
+    }
+    
+    @FXML
+    public void clicouComprar(ActionEvent event) throws Exception{
+        bd.addCarrinho(prod, usu);
+        label.setText("Compra Realizada");
+    }
+    
+    @FXML
+    public void clicouVoltar(ActionEvent event) throws Exception{
+        Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaMercado.fxml"));
+        Scene telaLogadoScene = new Scene(telaLogadoParent);
+        Stage tela = (Stage)((Node)event.getSource()).getScene().getWindow();
+        tela.setScene(telaLogadoScene);
+        tela.show();    
+        tela.setTitle("BagualShop - Mercado");
+    }
     
 }
