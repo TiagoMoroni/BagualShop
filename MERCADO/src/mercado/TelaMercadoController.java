@@ -1,12 +1,18 @@
 package mercado;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,8 +33,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import mercado.Mercado;
 import mercado.TelaInicialController;
+
 
 /**
  * FXML Controller class
@@ -37,11 +45,11 @@ import mercado.TelaInicialController;
  */
 public class TelaMercadoController implements Initializable {
 
-    private Label nomeusuario;
-    private ScrollPane scroll;
-    public static TilePane grandao;
-    private ArrayList<Produto> listaprod;
-    private ArrayList<AnchorPane> listapainel;
+    @FXML private Label nomeusuario;
+    @FXML private ScrollPane scroll;
+    @FXML public TilePane grandao;
+    ArrayList<Produto> listaprod;
+    @FXML public ArrayList<AnchorPane> listapainel;
     public Usuario usuarioatual = TelaInicialController.usuarioatual;
     public static Produto prodatual;
     @FXML
@@ -79,14 +87,12 @@ public class TelaMercadoController implements Initializable {
         tela.setTitle("BagualShop - Criar Anúncio");
     }
     
-    public void mostrarProdutos(){
-        for (int i = 0; i < listaprod.size(); i++) {
-            
-        }
+    public void mostrarProdutos() throws MalformedURLException, Exception{
         for(Produto prod:listaprod){
+            grandao.getChildren().add(new ProdutoFx(prod.getNome(), prod.getPreco(),prod.getImagemprod()));
         } 
     
-    }
+    }    
     
     public void setarAnchor(){
         Line linhacentro = new Line();
@@ -94,10 +100,6 @@ public class TelaMercadoController implements Initializable {
         linhacentro.setStartY(scroll.getLayoutY());
         linhacentro.setEndY(scroll.getHeight());
         linhacentro.setEndX(scroll.getLayoutX()+scroll.getWidth()/2);
-    }
-    
-    public void mostraNomeUsuario(String str) throws IOException{
-        nomeusuario.setText(str);
     }
     
     @FXML
@@ -127,13 +129,16 @@ public class TelaMercadoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb)  {
+        
+        System.out.println(usuarioatual.getNome());
         try {
             setListaProd();
-            mostraNomeUsuario(usuarioatual.getNome());
-            File file = new File("C:\\Users\\Tiago\\Desktop\\cuia.jpg");
-            imagemprod.setImage(file);
+            System.out.println(listaprod);
+            nomeusuario.setText(usuarioatual.getNome());
+            mostrarProdutos();
         } catch (Exception ex) {
             System.err.println("Deu erro TelaMercadoController");
+            ex.printStackTrace();
         }
         
 

@@ -25,40 +25,6 @@
          </padding>
          <content>
             <TilePane fx:id="grandao" hgap="10.0" prefHeight="384.0" prefWidth="761.0" vgap="10.0">
-               <children>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="355.0" style="-fx-border-color: black;">
-                     <children>
-                        <ImageView fx:id="imagemprod" fitHeight="229.0" fitWidth="327.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="nomeprod" layoutX="14.0" layoutY="252.0" prefHeight="38.0" prefWidth="327.0" text="Cuia para Chimarrao">
-                           <font>
-                              <Font name="Century Gothic" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="precoprod" layoutX="14.0" layoutY="295.0" prefHeight="38.0" prefWidth="327.0" text="R$ 40,00">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <AnchorPane fx:id="painel" onMouseClicked="#clicouPainel" opacity="0.0" prefHeight="355.0" prefWidth="355.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="355.0" style="-fx-border-color: black;">
-                     <children>
-                        <ImageView fx:id="imagemprod1" fitHeight="229.0" fitWidth="327.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="nomeprod1" layoutX="14.0" layoutY="252.0" prefHeight="38.0" prefWidth="327.0" text="Cuia para Chimarrao">
-                           <font>
-                              <Font name="Century Gothic" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="precoprod1" layoutX="14.0" layoutY="295.0" prefHeight="38.0" prefWidth="327.0" text="R$ 40,00">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <AnchorPane fx:id="painel1" onMouseClicked="#clicouPainel" opacity="0.0" prefHeight="355.0" prefWidth="355.0" />
-                     </children>
-                  </AnchorPane>
-               </children>
                <padding>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </padding>
