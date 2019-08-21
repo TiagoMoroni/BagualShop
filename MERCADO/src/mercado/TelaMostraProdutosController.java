@@ -19,7 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import mercado.Mercado;
-import mercado.TelaMercadoController;
+import mercado.ProdutoFx;
 import mercado.TelaInicialController;
 
 public class TelaMostraProdutosController implements Initializable {
@@ -31,7 +31,7 @@ public class TelaMostraProdutosController implements Initializable {
     private Label nomeproduto;
     @FXML
     private Label descproduto;
-    private Produto prod = TelaMercadoController.prodatual;
+    private Produto prod = ProdutoFx.prodatual;
     private ComandosBD bd = Mercado.conexaobd;
     private Usuario usu = TelaInicialController.usuarioatual;
     @FXML

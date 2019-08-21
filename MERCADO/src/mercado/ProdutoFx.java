@@ -23,7 +23,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import mercado.Mercado;
-import static mercado.TelaMercadoController.prodatual;
 
 /**
  * oovelhA + QUE + DO +NOW + REFRI
@@ -40,6 +39,7 @@ public class ProdutoFx extends VBox{
     private Label precoFx;
     private ImageView imgFx;
     private Font defaultFont = new Font("Helvetica", 40); 
+    public static Produto prodatual;
 
     
     
@@ -63,7 +63,9 @@ public class ProdutoFx extends VBox{
         this.name = nome;
         this.preco = preco;
         this.image = img;
-        
+        for (Produto prod:listaprod) {
+            System.out.println(prod.toString());
+        }
         nomeFx = new Label(nome);
         precoFx = new Label("R$ "+preco.toString());
         imgFx = new ImageView(image);
@@ -90,7 +92,7 @@ public class ProdutoFx extends VBox{
             for(Produto prod : listaprod){
                 if (prod.getImagemprod().equals(imgFx)) {
                     System.out.println("aassddadaadasdsdiferente");
-                    TelaMercadoController.prodatual = prod;
+                    prodatual = prod;
                     Parent telaLogadoParent = null;
                     try {
                         telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaMostraProdutos.fxml"));
@@ -101,6 +103,7 @@ public class ProdutoFx extends VBox{
                     Stage tela = (Stage)((Node)event.getSource()).getScene().getWindow();
                     tela.setScene(telaLogadoScene);
                     tela.show();    
+                    tela.setTitle("BagualShop - Criar Anúncio");
                     tela.setTitle("BagualShop - " + prodatual.getNome());
                 }
             }
