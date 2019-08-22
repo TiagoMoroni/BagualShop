@@ -89,7 +89,7 @@ public class TelaMercadoController implements Initializable {
     
     public void mostrarProdutos() throws MalformedURLException, Exception{
         for(Produto prod:listaprod){
-            grandao.getChildren().add(new ProdutoFx(prod.getNome(), prod.getPreco(),prod.getImagemprod()));
+            grandao.getChildren().add(new ProdutoFx(prod));
         } 
     
     }    
