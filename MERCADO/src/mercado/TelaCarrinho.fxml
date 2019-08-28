@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="519.0" prefWidth="777.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mercado.TelaCarrinhoController">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" layoutX="228.0" prefHeight="520.0" prefWidth="549.0" vbarPolicy="ALWAYS">
+         <content>
+            <TilePane fx:id="grandao" prefHeight="522.0" prefWidth="630.0" />
+         </content>
+      </ScrollPane>
+      <AnchorPane layoutY="-1.0" prefHeight="528.0" prefWidth="228.0" style="-fx-background-color: #2F1E17;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="186.0" layoutX="39.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@ShopKart.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="19.0" layoutY="173.0" prefHeight="34.0" prefWidth="199.0" text="Suas Compras" textAlignment="CENTER" textFill="#7f5f4b">
+               <font>
+                  <Font name="Century Gothic" size="28.0" />
+               </font>
+            </Label>
+            <Button fx:id="botaovoltar" layoutX="163.0" layoutY="489.0" mnemonicParsing="false" onAction="#clicouVoltar" text="Voltar" />
+            <Button fx:id="botaocomprar" layoutX="15.0" layoutY="405.0" mnemonicParsing="false" onAction="#clicouComprar" prefHeight="55.0" prefWidth="199.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: black;" text="Finalizar Compra" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

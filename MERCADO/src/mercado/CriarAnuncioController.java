@@ -43,7 +43,6 @@ public class CriarAnuncioController implements Initializable{
     @FXML private ChoiceBox recebetipo;
     @FXML private Button registrar;
     @FXML private Button voltar;
-    @FXML private Label mensagem;
     @FXML private Button botao;
     String nome;
     String descricao;
@@ -73,31 +72,57 @@ public class CriarAnuncioController implements Initializable{
     @FXML
     public void clicouRegistrar(ActionEvent event) throws SQLException, Exception{
         boolean erro;
-        do{
-            erro = true;
-            this.nome = recebenome.getText();
-            this.descricao = recebedescricao.getText();
-            this.tipo = recebetipo.getValue().toString();
-            this.preco = Float.parseFloat(recebepreco.getText());
-            char[] chararray = descricao. toCharArray();
-            if(tipo.equals(null) || tipo.equals("")){
-                erro = false;
-                mensagem.setText("Selecione um tipo válido");
-            }else if(chararray.length < 5 || descricao.equals("")){
-                erro = false;
-                mensagem.setText("Adicione uma descrição válida"); 
-            }else if(imagem.equals(null)){
-                erro = false;
-                mensagem.setText("Adicione uma imagem do produto");
-            }else if(nome.equals(null) || nome.equals("")){
-                erro = false;
-                mensagem.setText("Adicione um nome ao seu produto");
-            }
-        }while(erro == false);
-        mensagem.setText("Produto Registrado Com Sucesso!");
-        Produto prod = new Produto(tipo, descricao, preco, nome, imagem);
-        lista.add(prod);
-        Mercado.conexaobd.addProduto(prod);       
+        this.nome = recebenome.getText();
+        this.descricao = recebedescricao.getText();
+        this.tipo = recebetipo.getValue().toString();
+        this.preco = Float.parseFloat(recebepreco.getText());
+        char[] chararray = descricao. toCharArray();
+        erro = true;
+        if(tipo.equals(null) || tipo.equals("")){
+            erro = false;
+            Alert dialogoInfo = new Alert(Alert.AlertType.ERROR);
+            dialogoInfo.setTitle("BagualShop - Criar Anúncio");
+            dialogoInfo.setHeaderText("Erro ao Cadastrar");
+            dialogoInfo.setContentText("Selecione um tipo válido");
+            dialogoInfo.showAndWait();
+        }else if(chararray.length < 5 || descricao.equals("") || descricao.equals(null)){
+            erro = false;
+            Alert dialogoInfo = new Alert(Alert.AlertType.ERROR);
+            dialogoInfo.setTitle("BagualShop - Criar Anúncio");
+            dialogoInfo.setHeaderText("Erro ao Cadastrar");
+            dialogoInfo.setContentText("Adicione uma Descrição Válida");
+            dialogoInfo.showAndWait();
+        }else if(imagem.equals(null)){
+            erro = false;
+            Alert dialogoInfo = new Alert(Alert.AlertType.ERROR);
+            dialogoInfo.setTitle("BagualShop - Criar Anúncio");
+            dialogoInfo.setHeaderText("Erro ao Cadastrar");
+            dialogoInfo.setContentText("Adicione uma imagem do produto");
+            dialogoInfo.showAndWait();
+        }else if(nome.equals(null) || nome.equals("")){
+            erro = false;
+            Alert dialogoInfo = new Alert(Alert.AlertType.ERROR);
+            dialogoInfo.setTitle("BagualShop - Criar Anúncio");
+            dialogoInfo.setHeaderText("Erro ao Cadastrar");
+            dialogoInfo.setContentText("Adicione um nome válido");
+            dialogoInfo.showAndWait();
+        }else if(preco == 0.0f){
+            erro = false;
+            Alert dialogoInfo = new Alert(Alert.AlertType.ERROR);
+            dialogoInfo.setTitle("BagualShop - Criar Anúncio");
+            dialogoInfo.setHeaderText("Erro ao Cadastrar");
+            dialogoInfo.setContentText("Adicione um nome válido");
+            dialogoInfo.showAndWait();
+        }else if(erro == true){    
+            Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+            dialogoInfo.setTitle("BagualShop - Criar Anúncio");
+            dialogoInfo.setHeaderText("Produto cadastrado com sucesso");
+            dialogoInfo.setContentText("");
+            dialogoInfo.showAndWait();
+            Produto prod = new Produto(tipo, descricao, preco, nome, imagem);
+            lista.add(prod);
+            Mercado.conexaobd.addProduto(prod);  
+        }
     }
     
 
@@ -109,11 +134,17 @@ public class CriarAnuncioController implements Initializable{
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         File file = fileChooser.showOpenDialog(stage);
         if (file != null && ImageIO.read(file) != null ) {
-            Image imagem = new Image(file.toURI().toString());
-            imagemprod.setImage(imagem);
-            this.imagem = imagem;
-        }else{
-            mensagem.setText("O arquivo não é uma foto!");
+            try{   
+                Image imagem = new Image(file.toURI().toString());
+                imagemprod.setImage(imagem);
+                this.imagem = imagem;
+            }catch(Exception ex){
+            Alert dialogoInfo = new Alert(Alert.AlertType.ERROR);
+            dialogoInfo.setTitle("BagualShop - Criar Anúncio");
+            dialogoInfo.setHeaderText("Erro ao Cadastrar");
+            dialogoInfo.setContentText("O arquivo não é uma foto");
+            dialogoInfo.showAndWait();
+            }
         }
     }
      

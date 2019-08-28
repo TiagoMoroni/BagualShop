@@ -41,15 +41,28 @@ public class TelaNovaContaController implements Initializable {
         for(Usuario usu : usuarios){
             if (recebenome.getText().equals(usu.getNome())) {
                 temp = false;
-                alo.setText("DIGITE UM NOME DIFERENTE!!!");
+                Alert dialogoInfo = new Alert(Alert.AlertType.WARNING);
+                dialogoInfo.setTitle("BagualShop - Registrar");
+                dialogoInfo.setHeaderText("Falha ao Registrar");
+                dialogoInfo.setContentText("Esse nome já existe");
+                dialogoInfo.showAndWait();
                 break;
             }
         }
         if(temp){
             Usuario novousu = new Usuario(recebenome.getText(), recebesenha.getText(), "cliente");
             registrarUsuario(novousu);
-            alo.setText("CADASTRADO COM SUCESSO!!!");
-            System.out.println(usuarios);
+            Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
+            Scene telaLogadoScene = new Scene(telaLogadoParent);
+            Stage tela = (Stage)((Node)event.getSource()).getScene().getWindow();
+            tela.setScene(telaLogadoScene);
+            tela.show();    
+            tela.setTitle("BagualShop - Menu Inicial");
+            Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+            dialogoInfo.setTitle("BagualShop - Registrar");
+            dialogoInfo.setHeaderText("Você foi cadastrado com sucesso");
+            dialogoInfo.setContentText("Aproveite a Loja");
+            dialogoInfo.showAndWait();
         }
     }
     

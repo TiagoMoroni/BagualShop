@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -53,7 +54,11 @@ public class TelaMostraProdutosController implements Initializable {
     @FXML
     public void clicouComprar(ActionEvent event) throws Exception{
         bd.addCarrinho(prod, usu);
-        label.setText("Compra Realizada");
+        Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+        dialogoInfo.setTitle("BagualShop - " +prod.getNome());
+        dialogoInfo.setHeaderText("Compra Realizada com Sucesso");
+        dialogoInfo.setContentText("Finalize a sua compra em seu carrinho");
+        dialogoInfo.showAndWait();
     }
     
     @FXML

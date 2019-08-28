@@ -45,7 +45,7 @@
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="471.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto" textAlignment="RIGHT" wrappingWidth="119.13671875">
+      <Text layoutX="471.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" textAlignment="RIGHT" wrappingWidth="119.13671875">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
@@ -56,13 +56,13 @@
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="50.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clique abaixo para inserir a imagem de seu produto" wrappingWidth="300.0799560546875">
+      <Text layoutX="50.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Imagem (Obrigatorio)" wrappingWidth="300.0799560546875">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Text>
       <Button fx:id="voltar" layoutX="709.0" layoutY="501.0" mnemonicParsing="false" onAction="#clicouVoltar" text="Voltar" />
-      <Label fx:id="mensagem" layoutX="500.0" layoutY="446.0" prefHeight="35.0" prefWidth="253.0" textFill="RED">
+      <Label fx:id="mensagem" layoutX="424.0" layoutY="446.0" prefHeight="35.0" prefWidth="329.0" textFill="#cd0000">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>

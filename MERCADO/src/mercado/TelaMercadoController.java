@@ -1,21 +1,10 @@
 package mercado;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,11 +18,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
-import javax.imageio.ImageIO;
 import mercado.Mercado;
 import mercado.TelaInicialController;
 
@@ -46,20 +33,19 @@ import mercado.TelaInicialController;
 public class TelaMercadoController implements Initializable {
 
     @FXML private Label nomeusuario;
-    @FXML private ScrollPane scroll;
+    @FXML private Button botaoroupas;
+    @FXML private Button botaoalimentos;
+    @FXML private Button botaoveiculos;
+    @FXML private Button botaocuias;
+    @FXML private Button botaooutros;
+    private ScrollPane scroll;
     @FXML public TilePane grandao;
     ArrayList<Produto> listaprod;
-    @FXML public ArrayList<AnchorPane> listapainel;
+    public ArrayList<AnchorPane> listapainel;
     public Usuario usuarioatual = TelaInicialController.usuarioatual;
     public static Produto prodatual;
     @FXML
-    private ImageView imagemprod;
-    @FXML
-    private Label nomeprod;
-    @FXML
-    private Label precoprod;
-    @FXML
-    private AnchorPane painel;
+    private Button criaranuncio;
     
 
     public ArrayList<AnchorPane> getListapainel() {
@@ -78,6 +64,18 @@ public class TelaMercadoController implements Initializable {
         this.listaprod = Mercado.conexaobd.loadProdutos();
     }   
     
+    
+    @FXML
+    public void clicouCarrinho(MouseEvent event) throws IOException{
+        Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaCarrinho.fxml"));
+        Scene telaLogadoScene = new Scene(telaLogadoParent);
+        Stage tela = (Stage)((Node)event.getSource()).getScene().getWindow();
+        tela.setScene(telaLogadoScene);
+        tela.show();    
+        tela.setTitle("BagualShop - Suas Compras");
+    }
+    
+    @FXML
     public void clicouCriarAnuncio(ActionEvent event) throws IOException{
         Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("CriarAnuncio.fxml"));
         Scene telaLogadoScene = new Scene(telaLogadoParent);
@@ -87,12 +85,70 @@ public class TelaMercadoController implements Initializable {
         tela.setTitle("BagualShop - Criar Anúncio");
     }
     
-    public void mostrarProdutos() throws MalformedURLException, Exception{
-        for(Produto prod:listaprod){
+    public void mostrarProdutos(ArrayList<Produto> listinha) throws MalformedURLException, Exception{
+        grandao.getChildren().clear();
+        for(Produto prod:listinha){
             grandao.getChildren().add(new ProdutoFx(prod));
         } 
     
     }    
+    
+    @FXML
+    public void mostraRoupas() throws Exception{
+        ArrayList<Produto> lista = new ArrayList();
+        for (Produto prod : listaprod) {
+            if (prod.getTipo().equals("Roupas e Acessórios")) {
+                lista.add(prod);
+            }
+        }
+        mostrarProdutos(lista);
+    }
+    
+    @FXML
+    public void mostraAlimentos() throws Exception{
+        ArrayList<Produto> lista = new ArrayList();
+        for (Produto prod : listaprod) {
+            if (prod.getTipo().equals("Comidas")) {
+                lista.add(prod);
+            }
+        }
+        mostrarProdutos(lista);
+    }
+        
+    @FXML
+    public void mostraCuias() throws Exception{
+        ArrayList<Produto> lista = new ArrayList();
+        for (Produto prod : listaprod) {
+            if (prod.getTipo().equals("Cuias")) {
+                lista.add(prod);
+            }
+        }
+        mostrarProdutos(lista);
+    }
+    
+        
+    @FXML
+    public void mostraVeiculos() throws Exception{
+        ArrayList<Produto> lista = new ArrayList();
+        for (Produto prod : listaprod) {
+            if (prod.getTipo().equals("Veículos e Acessórios")) {
+                lista.add(prod);
+            }
+        }
+        mostrarProdutos(lista);
+    }
+    
+    @FXML
+    public void mostraOutros() throws Exception{
+        ArrayList<Produto> lista = new ArrayList();
+        for (Produto prod : listaprod) {
+            if (prod.getTipo().equals("Outros")) {
+                lista.add(prod);
+            }
+        }
+        mostrarProdutos(lista);
+    }
+    
     
     public void setarAnchor(){
         Line linhacentro = new Line();
@@ -102,7 +158,6 @@ public class TelaMercadoController implements Initializable {
         linhacentro.setEndX(scroll.getLayoutX()+scroll.getWidth()/2);
     }
     
-    @FXML
     public void clicouPainel(MouseEvent event) throws IOException{
         System.out.println("LCICOICUIOUAD");
         Image imagem = null;
@@ -129,13 +184,12 @@ public class TelaMercadoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb)  {
-        
+        botaoveiculos.setText("VEÍCULOS E ACESSÓRIOS");
         System.out.println(usuarioatual.getNome());
         try {
             setListaProd();
-            System.out.println(listaprod);
             nomeusuario.setText(usuarioatual.getNome());
-            mostrarProdutos();
+            mostrarProdutos(listaprod);
         } catch (Exception ex) {
             System.err.println("Deu erro TelaMercadoController");
             ex.printStackTrace();

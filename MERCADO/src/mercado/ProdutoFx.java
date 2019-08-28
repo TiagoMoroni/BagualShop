@@ -5,22 +5,16 @@
  */
 package mercado;
 
-import com.sun.glass.ui.Size;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import static javafx.print.PaperSource.MAIN;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,14 +25,9 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javax.imageio.ImageIO;
-import static javax.print.attribute.standard.MediaTray.MAIN;
-import javax.swing.ImageIcon;
-import static javax.swing.text.StyleConstants.Size;
 import mercado.Mercado;
 
-/**
- * oovelhA + QUE + DO +NOW + REFRI
+/*
  * @author 05200244
  */
 public class ProdutoFx extends VBox{
@@ -47,11 +36,11 @@ public class ProdutoFx extends VBox{
     private ArrayList<Produto> listaprod;
     private String name;
     private float preco;
-    private Label nomeFx;
-    private Image image;
-    private Label precoFx;
-    private ImageView imgFx;
-    private Font defaultFont = new Font("Helvetica", 40); 
+    @FXML private Label nomeFx;
+    @FXML private Image image;
+    @FXML private Label precoFx;
+    @FXML private ImageView imgFx;
+    @FXML private Font defaultFont = new Font("Century Gothic", 30); 
     public static Produto prodatual;
     
     public ProdutoFx(Produto produto) throws Exception {
@@ -83,12 +72,12 @@ public class ProdutoFx extends VBox{
         super.getChildren().add(nomeFx);
         super.getChildren().add(precoFx);
         this.setStyle("-fx-border-color: black;\n" +
-                      "-fx-border-insets: 5;\n");
+                      "-fx-border-insets: 5;\n" +
+                      "-fx-border-right: 5;\n" +
+                      "-fx-border-right-style: solid;\n");
         nomeFx.setFont(defaultFont);
         precoFx.setFont(defaultFont);
-        
         this.setSpacing(5);
-        
         this.setOnMouseClicked((MouseEvent event) -> {
             System.out.println("asdasdas");
             for(Produto prod : listaprod){
@@ -110,34 +99,68 @@ public class ProdutoFx extends VBox{
                 }
             }
             
-        ;});
-    }
-
-    public static boolean compareImage(Image imgA, Image imgB) {        
-        if(returnPixelVal().equals(returnPixelVal())){
-            return true;
-        }
-        return false;
+        });
+        centerImage();
     }
     
-    public static byte[] returnPixelVal(File in) {
+    public void centerImage() {
+        Image img = imgFx.getImage();
+        if (img != null) {
+            double w = 0;
+            double h = 0;
 
-        BufferedImage img = null;
-        File f = null;
-        byte[] pixels = null;
-        // read image
+            double ratioX = imgFx.getFitWidth() / img.getWidth();
+            double ratioY = imgFx.getFitHeight() / img.getHeight();
+
+            double reducCoeff = 0;
+            if(ratioX >= ratioY) {
+                reducCoeff = ratioY;
+            } else {
+                reducCoeff = ratioX;
+            }
+
+            w = img.getWidth() * reducCoeff;
+            h = img.getHeight() * reducCoeff;
+
+            imgFx.setX((imgFx.getFitWidth() - w) / 2);
+            imgFx.setY((imgFx.getFitHeight() - h) / 2);
+
+        }
+    }
+    
+    
+    public static boolean compareImage(Image a, Image b) {        
         try {
-            f = in;
-            img = ImageIO.read(f);
-            pixels = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
-        } catch (IOException e) {
-            System.out.println(e);
+            // take buffer data from botm image files //
+            BufferedImage biA = toBufferedImage(a);
+            DataBuffer dbA = biA.getData().getDataBuffer();
+            int sizeA = dbA.getSize();                      
+            BufferedImage biB = toBufferedImage(b);
+            DataBuffer dbB = biB.getData().getDataBuffer();
+            int sizeB = dbB.getSize();
+            // compare data-buffer objects //
+            if(sizeA == sizeB) {
+                for(int i=0; i<sizeA; i++) { 
+                    if(dbA.getElem(i) != dbB.getElem(i)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            else {
+                return false;
+            }
+        } 
+        catch (Exception e) { 
+            System.out.println("Failed to compare image files ...");
+            return  false;
         }
-
-        return pixels;
-
     }
     
+    public static BufferedImage toBufferedImage(Image img){
+        BufferedImage image = SwingFXUtils.fromFXImage(img, null);
+        return image;
+    }
 
     
     public String getName() {

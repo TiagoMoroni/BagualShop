@@ -19,7 +19,7 @@
             <Image url="@background-gaucho-5.jpg" />
          </image>
       </ImageView>
-      <ScrollPane hbarPolicy="NEVER" layoutX="315.0" layoutY="93.0" opacity="0.56" prefHeight="492.0" prefWidth="760.0" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" layoutX="315.0" layoutY="93.0" opacity="0.72" prefHeight="492.0" prefWidth="760.0" vbarPolicy="ALWAYS">
          <padding>
             <Insets right="56.0" />
          </padding>
@@ -42,32 +42,47 @@
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font></Label>
-            <Button layoutY="255.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ROUPAS" textFill="#7f5f4b">
+            <Button fx:id="botaoroupas" layoutY="255.0" mnemonicParsing="false" onAction="#mostraRoupas" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ROUPAS" textFill="#7f5f4b">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font></Button>
-            <Button layoutY="291.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ALIMENTOS" textFill="#7f5f4b">
+            <Button fx:id="botaoalimentos" layoutY="291.0" mnemonicParsing="false" onAction="#mostraAlimentos" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="ALIMENTOS" textFill="#7f5f4b">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font></Button>
-            <Button layoutY="327.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CAVALOS" textFill="#7f5f4b">
+            <Button fx:id="botaoveiculos" layoutY="327.0" mnemonicParsing="false" onAction="#mostraVeiculos" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" textFill="#7f5f4b">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font></Button>
-            <Button layoutY="363.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CUIAS" textFill="#7f5f4b">
+            <Button fx:id="botaocuias" layoutY="363.0" mnemonicParsing="false" onAction="#mostraCuias" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CUIAS" textFill="#7f5f4b">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font></Button>
-            <Button layoutY="399.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="CARROÇA" textFill="#7f5f4b" />
+            <Button fx:id="botaooutros" layoutY="399.0" mnemonicParsing="false" onAction="#mostraOutros" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="OUTROS" textFill="#7f5f4b" />
             <Button fx:id="criaranuncio" layoutX="47.0" layoutY="187.0" mnemonicParsing="false" onAction="#clicouCriarAnuncio" text="Criar Anuncio" />
             <Button layoutX="194.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Pesquisar" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="315.0" prefHeight="92.0" prefWidth="760.0" style="-fx-background-color: #2F1E17;">
          <children>
-            <Label fx:id="nomeusuario" layoutX="540.0" layoutY="27.0" prefHeight="37.0" prefWidth="139.0" textAlignment="CENTER" textFill="#7f5f4b">
+            <Label fx:id="nomeusuario" layoutX="285.0" layoutY="28.0" prefHeight="37.0" prefWidth="139.0" text="Tiago Moroni" textAlignment="CENTER" textFill="#7f5f4b">
                <font>
                   <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imagemcarrinho" fitHeight="57.0" fitWidth="51.0" layoutX="567.0" layoutY="21.0" onMouseClicked="#clicouCarrinho" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@ShopKart.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="49.0" layoutX="233.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@round-account-button-with-user-inside.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="621.0" layoutY="28.0" prefHeight="37.0" prefWidth="125.0" text="Seu Carrinho" textFill="#7f5f4b">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
                </font>
             </Label>
          </children></AnchorPane>
