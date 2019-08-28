@@ -60,7 +60,7 @@
                </font></Button>
             <Button fx:id="botaooutros" layoutY="399.0" mnemonicParsing="false" onAction="#mostraOutros" prefHeight="37.0" prefWidth="313.0" style="-fx-background-radius: 0px; -fx-border-radius: 0px; -fx-background-color: #2F1E17; -fx-border-width: 0.8px; -fx-border-color: black;" text="OUTROS" textFill="#7f5f4b" />
             <Button fx:id="criaranuncio" layoutX="47.0" layoutY="187.0" mnemonicParsing="false" onAction="#clicouCriarAnuncio" text="Criar Anuncio" />
-            <Button layoutX="194.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Pesquisar" />
+            <Button layoutX="194.0" layoutY="187.0" mnemonicParsing="false" onAction="#clicouProcurar" prefHeight="25.0" prefWidth="88.0" text="Pesquisar" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="315.0" prefHeight="92.0" prefWidth="760.0" style="-fx-background-color: #2F1E17;">

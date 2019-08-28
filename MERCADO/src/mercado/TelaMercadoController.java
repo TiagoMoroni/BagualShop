@@ -46,6 +46,8 @@ public class TelaMercadoController implements Initializable {
     public static Produto prodatual;
     @FXML
     private Button criaranuncio;
+    @FXML 
+    private Button botaoprocurar;
     
 
     public ArrayList<AnchorPane> getListapainel() {
@@ -64,6 +66,10 @@ public class TelaMercadoController implements Initializable {
         this.listaprod = Mercado.conexaobd.loadProdutos();
     }   
     
+    @FXML
+    public void clicouProcurar(ActionEvent event) throws IOException{
+    
+    }
     
     @FXML
     public void clicouCarrinho(MouseEvent event) throws IOException{
