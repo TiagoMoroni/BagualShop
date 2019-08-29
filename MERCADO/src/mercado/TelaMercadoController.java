@@ -54,10 +54,6 @@ public class TelaMercadoController implements Initializable {
     public ArrayList<AnchorPane> getListapainel() {
         return listapainel;
     }
-
-    public void setListapainel(ArrayList<AnchorPane> listapainel) {
-        this.listapainel = listapainel;
-    }
     
     public ArrayList<Produto> getListaprod() {
         return listaprod;
