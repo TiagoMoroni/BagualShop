@@ -89,7 +89,6 @@ public class ComandosBD {
         while(rs.next()) { 
             String nome = rs.getString("nome"); 
             String senha = rs.getString("senha");
-            System.out.println(nome + senha);
             int id = rs.getInt("usuario_id");
             lista.add(new Usuario(nome, senha, id));
         }

@@ -183,7 +183,6 @@ public class TelaMercadoController implements Initializable {
     }
     
     public void clicouPainel(MouseEvent event) throws IOException{
-        System.out.println("LCICOICUIOUAD");
         Image imagem = null;
         AnchorPane painel = (AnchorPane) event.getSource();
         AnchorPane painelgrandao = (AnchorPane) painel.getParent();
@@ -209,13 +208,11 @@ public class TelaMercadoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb)  {
         botaoveiculos.setText("VEÍCULOS E ACESSÓRIOS");
-        System.out.println(usuarioatual.getNome());
         try {
             setListaProd();
             nomeusuario.setText(usuarioatual.getNome());
             mostrarProdutos(listaprod);
         } catch (Exception ex) {
-            System.err.println("Deu erro TelaMercadoController");
             ex.printStackTrace();
         }
         

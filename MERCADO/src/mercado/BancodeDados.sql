@@ -4,7 +4,7 @@ use bagualshop;
 create table usuario(
 	nome varchar(200),
 	senha varchar(100) not null,
-	tipo varchar(7) not null,
+	tipo varchar(7) not null default 'usuario',
 	usuario_id int primary key auto_increment
 );
 

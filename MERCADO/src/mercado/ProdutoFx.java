@@ -49,9 +49,6 @@ public class ProdutoFx extends VBox{
         this.name = produto.getNome();
         this.preco = produto.getPreco();
         this.image = produto.getImagemprod();
-        for (Produto prod:listaprod) {
-            System.out.println(prod.toString());
-        }
         nomeFx = new Label(name);
         precoFx = new Label("R$ " + preco);
         imgFx = new ImageView(image);
@@ -79,10 +76,8 @@ public class ProdutoFx extends VBox{
         precoFx.setFont(defaultFont);
         this.setSpacing(5);
         this.setOnMouseClicked((MouseEvent event) -> {
-            System.out.println("asdasdas");
             for(Produto prod : listaprod){
                 if (compareImage(prod.getImagemprod(), produto.getImagemprod())) {
-                    System.out.println("aassddadaadasdsdiferente");
                     prodatual = prod;
                     Parent telaLogadoParent = null;
                     try {
