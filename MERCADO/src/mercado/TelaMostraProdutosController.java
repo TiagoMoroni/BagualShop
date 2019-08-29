@@ -19,9 +19,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import mercado.Mercado;
-import mercado.ProdutoFx;
-import mercado.TelaInicialController;
 
 public class TelaMostraProdutosController implements Initializable {
     @FXML
@@ -32,19 +29,19 @@ public class TelaMostraProdutosController implements Initializable {
     private Label nomeproduto;
     @FXML
     private Label descproduto;
-    private Produto prod = ProdutoFx.prodatual;
-    private ComandosBD bd = Mercado.conexaobd;
-    private Usuario usu = TelaInicialController.usuarioatual;
+    private final Produto prod = ProdutoFx.prodatual;
+    private final ComandosBD bd = Mercado.conexaobd;
+    private final Usuario usu = TelaInicialController.usuarioatual;
     @FXML
     private Button botaocomprar;
-    @FXML
-    private Label label;
+
     @FXML
     private Button botaovoltar;
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         fotoproduto.setImage(prod.getImagemprod());
         precoproduto.setText(Float.toString(prod.getPreco()));
         nomeproduto.setText(prod.getNome());
@@ -69,6 +66,7 @@ public class TelaMostraProdutosController implements Initializable {
         tela.setScene(telaLogadoScene);
         tela.show();    
         tela.setTitle("BagualShop - Mercado");
+        descproduto.setStyle("-fx-vertical-align: top;");
     }
     
 }
