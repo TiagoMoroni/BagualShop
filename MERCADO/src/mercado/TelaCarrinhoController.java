@@ -21,6 +21,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import mercado.Mercado;
@@ -41,6 +42,8 @@ public class TelaCarrinhoController implements Initializable {
     private ArrayList<Produto> lista;
     private ComandosBD bd = Mercado.conexaobd;
     private Usuario usu = TelaInicialController.usuarioatual;
+    @FXML
+    private Label mostraTotal;
 
     /**
      * Initializes the controller class.
@@ -57,6 +60,11 @@ public class TelaCarrinhoController implements Initializable {
         } catch (Exception ex) {
             Logger.getLogger(TelaCarrinhoController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        float total = 0.0f;
+        for (Produto prod : lista) {
+            total += prod.getPreco();
+        }
+        mostraTotal.setText(mostraTotal.getText() + total);
     }    
 
     public void mostrarProdutos() throws MalformedURLException, Exception{

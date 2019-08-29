@@ -10,25 +10,34 @@
 
 <AnchorPane id="AnchorPane" prefHeight="519.0" prefWidth="777.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mercado.TelaCarrinhoController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutX="228.0" prefHeight="520.0" prefWidth="549.0" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" layoutX="269.0" prefHeight="528.0" prefWidth="736.0" vbarPolicy="ALWAYS">
          <content>
-            <TilePane fx:id="grandao" prefHeight="522.0" prefWidth="630.0" />
+            <TilePane fx:id="grandao" prefHeight="528.0" prefWidth="735.0" />
          </content>
       </ScrollPane>
-      <AnchorPane layoutY="-1.0" prefHeight="528.0" prefWidth="228.0" style="-fx-background-color: #2F1E17;">
+      <AnchorPane prefHeight="528.0" prefWidth="269.0" style="-fx-background-color: #2F1E17;">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="186.0" layoutX="39.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="186.0" layoutX="60.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@ShopKart.png" />
                </image>
             </ImageView>
-            <Label layoutX="19.0" layoutY="173.0" prefHeight="34.0" prefWidth="199.0" text="Suas Compras" textAlignment="CENTER" textFill="#7f5f4b">
+            <Label layoutX="35.0" layoutY="174.0" prefHeight="34.0" prefWidth="199.0" text="Suas Compras" textAlignment="CENTER" textFill="#7f5f4b">
                <font>
                   <Font name="Century Gothic" size="28.0" />
                </font>
             </Label>
-            <Button fx:id="botaovoltar" layoutX="163.0" layoutY="489.0" mnemonicParsing="false" onAction="#clicouVoltar" text="Voltar" />
-            <Button fx:id="botaocomprar" layoutX="15.0" layoutY="405.0" mnemonicParsing="false" onAction="#clicouComprar" prefHeight="55.0" prefWidth="199.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: black;" text="Finalizar Compra" />
+            <Button fx:id="botaovoltar" layoutX="207.0" layoutY="489.0" mnemonicParsing="false" onAction="#clicouVoltar" text="Voltar" />
+            <Button fx:id="botaocomprar" layoutX="35.0" layoutY="410.0" mnemonicParsing="false" onAction="#clicouComprar" prefHeight="55.0" prefWidth="199.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-border-color: black;" text="Finalizar Compra" />
+            <Label fx:id="mostraTotal" layoutX="12.0" layoutY="321.0" prefHeight="55.0" prefWidth="248.0" style="-fx-alignment: center;" text="R$ " textAlignment="CENTER" textFill="#7f5f4b">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="6.0" layoutY="296.0" prefHeight="36.0" prefWidth="248.0" text="O valor total de sua compra será:" textFill="#7f5f4b">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

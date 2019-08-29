@@ -1,0 +1,8 @@
+@font-face{
+    font-family: Vogue;
+    src: url('Vogue.ttf');
+}
+
+.button{
+    -fx-font-family: Vogue;
+}

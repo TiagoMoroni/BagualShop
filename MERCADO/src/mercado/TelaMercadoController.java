@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -67,8 +68,25 @@ public class TelaMercadoController implements Initializable {
     }   
     
     @FXML
-    public void clicouProcurar(ActionEvent event) throws IOException{
-    
+    public void clicouProcurar(ActionEvent event) throws IOException, Exception{
+        TextInputDialog dialog = new TextInputDialog("Tran");
+
+        dialog.setTitle("o7planning");
+        dialog.setHeaderText("Enter your name:");
+        dialog.setContentText("Name:");
+
+        String pesquisa = null;
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()){
+            pesquisa = result.get();
+        }
+        ArrayList<Produto> listinha = new ArrayList();
+        for (Produto prod : listaprod) {
+            if (prod.getNome().equals(pesquisa)) {
+                listinha.add(prod);
+            }
+        }
+        mostrarProdutos(listinha);
     }
     
     @FXML
