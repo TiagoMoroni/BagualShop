@@ -33,13 +33,14 @@ public class ComandosBD {
     public static void addUsuario(Usuario usu) throws SQLException, Exception {
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         Connection con = ConexaoBD.getConnection();
-        String sql = "INSERT INTO usuario (nome, senha, usuario_id) VALUES (?,?,?)";
+        String sql = "INSERT INTO usuario (nome, senha, tipo, usuario_id) VALUES (?, ?, ?, ?)";
         PreparedStatement stmt = null;
         try {
             stmt = (PreparedStatement) con.prepareStatement(sql);
-            stmt.setString(1, usu.getNome() );
+            stmt.setString(1, usu.getNome());
             stmt.setString(2, usu.getSenha());
-            stmt.setInt(3, usu.getId());
+            stmt.setString(3, usu.getTipo());
+            stmt.setInt(4, usu.getId());
             stmt.executeUpdate();
             
         } catch (SQLException ex) {
@@ -89,8 +90,9 @@ public class ComandosBD {
         while(rs.next()) { 
             String nome = rs.getString("nome"); 
             String senha = rs.getString("senha");
+            String tipo = rs.getString("tipo");
             int id = rs.getInt("usuario_id");
-            lista.add(new Usuario(nome, senha, id));
+            lista.add(new Usuario(nome, senha, tipo, id));
         }
         con.close();
         return lista;

@@ -67,9 +67,9 @@ public class TelaMercadoController implements Initializable {
     public void clicouProcurar(ActionEvent event) throws IOException, Exception{
         TextInputDialog dialog = new TextInputDialog("Tran");
 
-        dialog.setTitle("o7planning");
-        dialog.setHeaderText("Enter your name:");
-        dialog.setContentText("Name:");
+        dialog.setTitle("BagualShop - Procurar Anúncio");
+        dialog.setHeaderText("");
+        dialog.setContentText("Anúncio:");
 
         String pesquisa = null;
         Optional<String> result = dialog.showAndWait();
@@ -96,13 +96,31 @@ public class TelaMercadoController implements Initializable {
     }
     
     @FXML
-    public void clicouCriarAnuncio(ActionEvent event) throws IOException{
-        Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("CriarAnuncio.fxml"));
+    public void clicouVoltar(ActionEvent event) throws IOException{
+        Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
         Scene telaLogadoScene = new Scene(telaLogadoParent);
         Stage tela = (Stage)((Node)event.getSource()).getScene().getWindow();
         tela.setScene(telaLogadoScene);
         tela.show();    
-        tela.setTitle("BagualShop - Criar Anúncio");
+        tela.setTitle("BagualShop - Login");
+    }
+    
+    @FXML
+    public void clicouCriarAnuncio(ActionEvent event) throws IOException{
+        if (usuarioatual.getTipo().equals("admin")) {
+            Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("CriarAnuncio.fxml"));
+            Scene telaLogadoScene = new Scene(telaLogadoParent);
+            Stage tela = (Stage)((Node)event.getSource()).getScene().getWindow();
+            tela.setScene(telaLogadoScene);
+            tela.show();    
+            tela.setTitle("BagualShop - Criar Anúncio");
+        }else{
+            Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+            dialogoInfo.setTitle("BagualShop - Criar Anúncio");
+            dialogoInfo.setHeaderText("Acesso Negado");
+            dialogoInfo.setContentText("Somente um administrador pode criar um anúncio");
+            dialogoInfo.showAndWait();
+        }
     }
     
     public void mostrarProdutos(ArrayList<Produto> listinha) throws MalformedURLException, Exception{

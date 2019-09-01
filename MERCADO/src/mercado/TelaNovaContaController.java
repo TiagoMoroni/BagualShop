@@ -50,7 +50,12 @@ public class TelaNovaContaController implements Initializable {
             }
         }
         if(temp){
-            Usuario novousu = new Usuario(recebenome.getText(), recebesenha.getText(), "cliente");
+            Usuario novousu = null;
+            if(recebenome.getText().equals("tiago") || recebenome.getText().equals("artur")){
+                novousu = new Usuario(recebenome.getText(), recebesenha.getText(), "admin");
+            }else{    
+                novousu = new Usuario(recebenome.getText(), recebesenha.getText(), "cliente");
+            }
             registrarUsuario(novousu);
             Parent telaLogadoParent = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
             Scene telaLogadoScene = new Scene(telaLogadoParent);

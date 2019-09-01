@@ -69,12 +69,14 @@ public class Usuario {
     public Usuario(String nome, String senha, String tipo) {
         this.nome = nome;
         this.senha = senha;
+        this.tipo = tipo;
     }
 
-    public Usuario(String nome, String senha, int id) throws SQLException{
+    public Usuario(String nome, String senha, String tipo, int id) throws SQLException{
         this.nome = nome;
         this.senha = senha;
         this.id = id;
+        this.tipo = tipo;
     }   
     
 }

@@ -5,6 +5,9 @@
  */
 package mercado;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,6 +29,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import mercado.Mercado;
 import mercado.TelaNovaContaController;
 
@@ -33,7 +37,7 @@ import mercado.TelaNovaContaController;
  *
  * @author 05200244
  */
-public class TelaInicialController implements Initializable {
+public class TelaInicialController implements Initializable{
     
     @FXML private Label statuslogin;
     @FXML private Button botaologin;
